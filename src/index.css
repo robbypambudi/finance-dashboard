@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login {
+  background: linear-gradient(-135deg,#c850c0,#4158d0);
+}
+
+.dashboard {
+  background: linear-gradient(to top, #5768f3, #1c45ef);
+}
