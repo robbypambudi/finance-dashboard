@@ -1,7 +1,8 @@
-import Login from "../pages/Auth/Login";
-import Dashboard from "../pages/Dashboard";
-import AuthRoute from "./AuthRoute";
-import GuestRoute from "./GuestRoute";
+import Login from '../pages/Auth/Login';
+import Dashboard from '../pages/Dashboard';
+import Transaksi from '../pages/Transaksi';
+import AuthRoute from './AuthRoute';
+import GuestRoute from './GuestRoute';
 
 const routes = [
   {
@@ -10,21 +11,28 @@ const routes = [
       <AuthRoute>
         <Dashboard />
       </AuthRoute>
-      
     ),
     visible: true,
     exact: true,
   },
   {
-    path : '/login',
-    element : (
+    path: '/transaksi',
+    element: (
+      <AuthRoute>
+        <Transaksi />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/login',
+    element: (
       <GuestRoute>
         <Login />
       </GuestRoute>
     ),
-    visible : true,
-    
-  }
-]
+    visible: true,
+  },
+];
 
-export {routes};
+export { routes };
