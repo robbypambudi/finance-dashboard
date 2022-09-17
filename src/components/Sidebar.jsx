@@ -1,25 +1,31 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import { BiTask } from 'react-icons/bi';
+import { GrTransaction } from 'react-icons/gr';
 import { HiViewGrid, HiUser, HiXCircle, HiLogout } from 'react-icons/hi';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 const navigation = [
   {
     name: 'Dashboard',
-    href: '/admin',
+    href: '/',
     icon: HiViewGrid,
     current: false,
   },
 
   {
-    name: 'Pendaftar',
-    href: '/admin/pendaftar',
-    icon: HiUser,
+    name: 'Transaksi',
+    href: '/transaksi',
+    icon: GrTransaction,
     current: false,
+  },
+  {
+    name: 'Laporan',
+    href: '/laporan',
+    icon: BiTask,
   },
 ];
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
-
   return (
     <div>
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -73,8 +79,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                   </button>
                 </div>
               </Transition.Child>
-              <div className='flex items-center flex-shrink-0 px-4'>
-              </div>
+              <div className='flex items-center flex-shrink-0 px-4'></div>
               <nav
                 className='flex-shrink-0 h-full mt-5 overflow-y-auto divide-y divide-dark-700'
                 aria-label='Sidebar'
@@ -110,8 +115,15 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
         <div className='flex flex-col w-64'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className='flex flex-col flex-grow pt-5 pb-4 overflow-y-auto dashboard'>
-            <div className='flex items-center flex-shrink-0 px-4 justify-center'>
-              
+            <div className='flex items-center flex-shrink-0 px-4 justify-center'></div>
+            <div className='border-y border-y-white border-r border-r-white w-[75%] text-white flex items-center mx-1'>
+              <div>
+                <HiUser size={32} />
+              </div>
+              <div className='text-sm font-secondary'>
+                <p>Robby Pambudi</p>
+                <p>CEO PT Berdiri Sendiri</p>
+              </div>
             </div>
             <nav
               className='flex flex-col flex-1 mt-5 overflow-y-auto divide-y divide-gray-600'
@@ -120,7 +132,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
               <div className='px-2 space-y-1 flex flex-col'>
                 {/* Maping */}
                 {navigation.map((item, index) => (
-                  <Link key={index} to={item.href} >
+                  <Link key={index} to={item.href}>
                     <div
                       className={`p-3 rounded-md flex items-center gap-x-3 ${
                         nav === item.name
@@ -139,9 +151,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
               {/* Hr */}
               <div className='flex items-center  px-3 md:px-4 lg:px-6 gap-x-3'>
                 <HiLogout size={24} className='text-white' />
-                <p
-                  className='text-white font-secondary hover:text-gray-200 cursor-pointer'
-                >
+                <p className='text-white font-secondary hover:text-gray-200 cursor-pointer'>
                   Sign Out
                 </p>
               </div>
@@ -150,6 +160,5 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
         </div>
       </div>
     </div>
-  )
-
+  );
 }

@@ -1,18 +1,18 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from 'react';
 const StateContext = createContext({
   authenticated: false,
   user: null,
-  user_type: " ",
+  user_type: ' ',
   loading: true,
 });
-StateContext.displayName = "AuthState";
+StateContext.displayName = 'AuthState';
 
 const DispatchContext = createContext(null);
-DispatchContext.displayName = "AuthDispatch";
+DispatchContext.displayName = 'AuthDispatch';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case "LOGIN":
+    case 'LOGIN':
       return {
         ...state,
         authenticated: true,
@@ -20,7 +20,7 @@ const reducer = (state, { type, payload }) => {
         user: payload,
       };
 
-    case "STOP_LOADING":
+    case 'STOP_LOADING':
       return {
         ...state,
         loading: false,
@@ -30,21 +30,19 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-
 export const AuthProvider = ({ children }) => {
   const [state, defaultDispatch] = useReducer(reducer, {
     user: null,
     authenticated: false,
     loading: true,
   });
-  
-  useEffect(()=> {
-    function setLoadingFalse(){
-      dispatch("STOP_LOADING");
+
+  useEffect(() => {
+    function setLoadingFalse() {
+      dispatch('STOP_LOADING');
     }
     setLoadingFalse();
-  
-  }, [])
+  }, []);
   const dispatch = (type, payload) => defaultDispatch({ type, payload });
 
   return (
