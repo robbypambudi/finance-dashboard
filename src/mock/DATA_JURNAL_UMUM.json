@@ -1,0 +1,182 @@
+[
+  {
+    "tanggal": "2022-02-07 21:05:53",
+    "transaksi": "Hutang",
+    "kode": "1-10004",
+    "debit": "Rp. 20.000.000",
+    "kredit": "Rp. 0",
+    "catatan": "Uang Perjalanana Ke Bandung ",
+    "id": "39e8288f-23eb-44a9-94b2-826a81813ce8"
+  },
+  {
+    "tanggal": "2021-11-05 21:29:34",
+    "transaksi": "Pengeluaran",
+    "kode": null,
+    "debit": "Rp. 17.000.000",
+    "kredit": "Rp. 7.15",
+    "catatan": "Carey",
+    "id": "9819d095-542d-4909-bbb4-b651f2b2e984"
+  },
+  {
+    "tanggal": "2022-02-24 13:19:20",
+    "transaksi": "Pengeluaran",
+    "kode": null,
+    "debit": null,
+    "kredit": "Rp. 0",
+    "catatan": "Mockingbird",
+    "id": "bace9198-1d9a-4536-a694-39b90d373062"
+  },
+  {
+    "tanggal": "2021-11-15 21:04:33",
+    "transaksi": "Piutang",
+    "kode": "1-10001",
+    "debit": "Rp. 1.000.000",
+    "kredit": "Rp. 0",
+    "catatan": "Sachtjen",
+    "id": "5a2108f0-1915-4752-8667-0b40d34bad54"
+  },
+  {
+    "tanggal": "2022-04-22 03:35:25",
+    "transaksi": "Pembayaran Hutang",
+    "kode": "1-10004",
+    "debit": "Rp. 0",
+    "kredit": "Rp. 12.000.000",
+    "catatan": "Gulseth",
+    "id": "b00f8108-a0d7-4e37-9822-2ef73c877948"
+  },
+  {
+    "tanggal": "2022-07-05 06:39:32",
+    "transaksi": "Pengeluaran",
+    "kode": null,
+    "debit": "Rp. 9.02",
+    "kredit": "Rp. 6.81",
+    "catatan": "Trailsway",
+    "id": "ae638223-ff25-470c-a3a6-0383b1ebd8e4"
+  },
+  {
+    "tanggal": "2022-07-08 09:55:53",
+    "transaksi": "Pengeluaran",
+    "kode": "1-10004",
+    "debit": "Rp. 1.03",
+    "kredit": "Rp. 6.95",
+    "catatan": "Pepper Wood",
+    "id": "13c1a8e4-ebad-4d4d-b181-3bf8074f4231"
+  },
+  {
+    "tanggal": "2022-05-15 21:45:45",
+    "transaksi": "Hutang",
+    "kode": null,
+    "debit": "Rp. 4.94",
+    "kredit": "Rp. 5.79",
+    "catatan": "Rockefeller",
+    "id": "66576bd2-30e9-4dd5-b158-09182cb69415"
+  },
+  {
+    "tanggal": "2022-09-13 04:38:51",
+    "transaksi": "Pemasukan",
+    "kode": null,
+    "debit": null,
+    "kredit": "Rp. 0",
+    "catatan": "Ridgeway",
+    "id": "e4c19b95-851f-4b7c-97e1-cb02596d2635"
+  },
+  {
+    "tanggal": "2022-07-07 14:28:15",
+    "transaksi": "Hutang",
+    "kode": "1-10003",
+    "debit": "Rp. 6.54",
+    "kredit": "Rp. 5.94",
+    "catatan": "Everett",
+    "id": "dab38105-d162-47e2-b352-f7b8e49e7f14"
+  },
+  {
+    "tanggal": "2022-05-26 00:59:27",
+    "transaksi": "Pemasukan",
+    "kode": null,
+    "debit": null,
+    "kredit": "Rp. 0",
+    "catatan": "Upham",
+    "id": "97002555-7f0b-4b74-8c08-70f49506f03e"
+  },
+  {
+    "tanggal": "2022-03-23 01:13:04",
+    "transaksi": "Pembayaran Hutang",
+    "kode": "1-10004",
+    "debit": "Rp. 9.02",
+    "kredit": "Rp. 5.35",
+    "catatan": "Mifflin",
+    "id": "b7103adc-ea0a-4d2e-a078-75678ece77d6"
+  },
+  {
+    "tanggal": "2022-03-18 18:05:18",
+    "transaksi": "Hutang",
+    "kode": null,
+    "debit": "Rp. 5.62",
+    "kredit": "Rp. 5.88",
+    "catatan": "Merchant",
+    "id": "27ea28d1-1b5f-4397-9d2d-d89f79eff3ad"
+  },
+  {
+    "tanggal": "2022-09-15 08:10:36",
+    "transaksi": "Pengeluaran",
+    "kode": null,
+    "debit": "Rp. 9.56",
+    "kredit": "Rp. 8.61",
+    "catatan": "Kipling",
+    "id": "7a00491f-9211-4705-821b-d9a55ea4d1f6"
+  },
+  {
+    "tanggal": "2022-06-23 23:21:46",
+    "transaksi": "Piutang",
+    "kode": "1-10003",
+    "debit": null,
+    "kredit": "Rp. 0",
+    "catatan": "Vera",
+    "id": "670baf42-65d5-4432-9d61-e394bd6097f2"
+  },
+  {
+    "tanggal": "2022-07-10 20:49:02",
+    "transaksi": "Hutang",
+    "kode": "1-10003",
+    "debit": "Rp. 4.90",
+    "kredit": "Rp. 8.46",
+    "catatan": "Jenna",
+    "id": "ae923f40-095a-4c1b-af87-2fd75eec0399"
+  },
+  {
+    "tanggal": "2022-01-04 21:58:09",
+    "transaksi": "Pengeluaran",
+    "kode": "1-10002",
+    "debit": null,
+    "kredit": "Rp. 0",
+    "catatan": "Swallow",
+    "id": "6f5f4e79-1bf7-4025-9ce0-06b3f39f3b2c"
+  },
+  {
+    "tanggal": "2022-01-14 23:00:57",
+    "transaksi": "Pembayaran Hutang",
+    "kode": null,
+    "debit": "Rp. 0.23",
+    "kredit": "Rp. 6.35",
+    "catatan": "Armistice",
+    "id": "c5a36005-0154-43fa-b80b-57d9388409e7"
+  },
+  {
+    "tanggal": "2021-11-08 22:26:19",
+    "transaksi": "Pengeluaran",
+    "kode": "1-10002",
+    "debit": "Rp. 5.56",
+    "kredit": "Rp. 3.16",
+    "catatan": "Crescent Oaks",
+    "id": "006cfa94-af7d-424c-97c7-1bb78c6b418e"
+  },
+  {
+    "tanggal": "2021-12-05 14:23:43",
+    "transaksi": "Hutang",
+    "kode": null,
+    "debit": "Rp. 7.19",
+    "kredit": "Rp. 3.08",
+    "catatan": "Esker",
+    "id": "04ad6c5c-e6be-4b32-90e4-dd9672a3a1b0"
+  }
+]
