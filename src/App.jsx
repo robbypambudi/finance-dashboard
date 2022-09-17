@@ -1,9 +1,8 @@
-
-import "./App.css";
-import { AuthProvider } from "./contexts/AuthContext";
-import { Toaster } from "react-hot-toast";
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./routes/";
+import './App.css';
+import { AuthProvider } from './contexts/AuthContext';
+import { Toaster } from 'react-hot-toast';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes/';
 function App() {
   return (
     <>
@@ -11,9 +10,9 @@ function App() {
         reverseOrder={false}
         toastOptions={{
           style: {
-            borderRadius: "8px",
-            background: "#333",
-            color: "#fff",
+            borderRadius: '8px',
+            background: '#333',
+            color: '#fff',
           },
         }}
       />
@@ -23,7 +22,7 @@ function App() {
           basename={process.env.PUBLIC_URL}
           forceRefresh={true}
         >
-          <Routes/>
+          <Routes />
         </BrowserRouter>
       </AuthProvider>
     </>
