@@ -63,11 +63,20 @@ export default function InvoiceBarang() {
                 Export To Excel
               </button>
             </Link>
+            <Link
+              to={`${process.env.PUBLIC_URL}/assets/excel/ExcelSuratJalan.xlsx`}
+              target='_blank'
+              download={true}
+            >
+              <button className='bg-blue-500 px-4 py-2 rounded border border-blue-600 shadow text-white'>
+                Surat Jalan
+              </button>
+            </Link>
             <button className='bg-blue-500 px-4 py-2 rounded border border-blue-600 shadow text-white'>
-              Export To CSV
+              Export To Faktur
             </button>
             <button className='bg-blue-500 px-4 py-2 rounded border border-blue-600 shadow text-white'>
-              Export To PDF
+              Export To CSV
             </button>
           </div>
           <div className=' bg-white border border-gray-400 rounded shadow my-4 py-4'>
