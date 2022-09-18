@@ -57,9 +57,15 @@ export default function JurnalUmum() {
           </h1>
 
           <div className='flex justify-center items-center gap-x-3 mt-5'>
-            <button className='px-4 py-2 bg-gray-400 text-white font-bold rounded'>
-              <p>Export To Excel</p>
-            </button>
+            <Link
+              to={`${process.env.PUBLIC_URL}/assets/excel/LaporanJurnalUmum.xlsx`}
+              download={true}
+              target='_blank'
+            >
+              <button className='px-4 py-2 bg-gray-400 text-white font-bold rounded'>
+                <p>Export To Excel</p>
+              </button>
+            </Link>
             <button className='px-4 py-2 bg-gray-400 text-white font-bold rounded'>
               <p>Export To CSV</p>
             </button>
