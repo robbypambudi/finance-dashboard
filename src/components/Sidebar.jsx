@@ -2,6 +2,7 @@ import { Dialog, Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { BiTask } from 'react-icons/bi';
 import { GrTransaction } from 'react-icons/gr';
+import { FaBoxes } from 'react-icons/fa';
 import { HiViewGrid, HiUser, HiXCircle, HiLogout } from 'react-icons/hi';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 const navigation = [
@@ -63,6 +64,12 @@ const navigation = [
         current: false,
       },
     ],
+  },
+  {
+    name: 'Stok Barang',
+    href: '/stock-barang',
+    icon: FaBoxes,
+    dropdown: false,
   },
 ];
 

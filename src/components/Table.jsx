@@ -11,13 +11,15 @@ export default function Table({ data, columns }) {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <table className='table-auto border-collapse border border-slate-500 w-full'>
+    <table className='table-auto border-collapse border border-slate-500 w-full text-center'>
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
               <th
                 key={header.id}
+                colSpan={header.colSpan}
+                // rowSpan={header.rowSpan}
                 className='border border-slate-600 bg-gray-100 '
               >
                 {header.isPlaceholder
