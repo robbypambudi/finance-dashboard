@@ -1,0 +1,20 @@
+[
+  {
+    "kode": "1001",
+    "name": "Biji Plastik",
+    "tanggal": "12/12/2022",
+    "barang_masuk": "20",
+    "barang_keluar": "200",
+    "satuan": "Kg",
+    "tersedia": "2000"
+  },
+  {
+    "kode": "1002",
+    "name": "Plastik Kemasan",
+    "tanggal": "12/12/2022",
+    "barang_masuk": "20",
+    "barang_keluar": "200",
+    "satuan": "Kg",
+    "tersedia": "1000"
+  }
+]
