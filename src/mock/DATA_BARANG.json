@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Biji Plastik (101)",
+    "value": "101",
+    "stock": 1000,
+    "satuan": "Kg"
+  },
+  {
+    "name": "Polyester (102)",
+    "value": "102",
+    "stock": 1000,
+    "satuan": "Kg"
+  },
+  {
+    "name": "Galon (103)",
+    "value": "103",
+    "stock": 20,
+    "satuan": "Biji"
+  }
+]

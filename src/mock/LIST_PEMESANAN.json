@@ -1,0 +1,22 @@
+[
+  {
+    "kode": "101",
+    "name": "Biji Plastik",
+    "jumlah": 100,
+    "satuan": "Kg",
+    "harga_satuan": "Rp. 100.000",
+    "total": "Rp. 100.000.000",
+    "transaksi_id": "12345",
+    "order_id": "123"
+  },
+  {
+    "kode": "102",
+    "name": "Plastik Kemasan",
+    "jumlah": 10,
+    "satuan": "Kg",
+    "harga_satuan": "Rp. 10.000",
+    "total": "Rp. 100.000",
+    "transaksi_id": "123456",
+    "order_id": "124"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "0001",
+    "tanggal": "18/08/2022",
+    "kontak": "Pak Briand",
+    "jenis_transaksi": "Penjualan",
+    "no_telp": "085257188594",
+    "nominal": "Rp 440.000.000",
+    "catatan": "Barang mengalami kendala",
+    "invoice": "INV-203332"
+  }
+]

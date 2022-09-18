@@ -1,0 +1,26 @@
+{
+  "invoice_id": "INV-123123132131213",
+  "tanggal": "2021-11-08 22:26:19",
+  "nama": "Pak Briand",
+  "total_harga": "Rp. 20.000.000",
+  "catatan": "Barang Mengalami Kendala Di Pelabuan",
+  "jenis_transaksi": "Penjualan",
+  "barang": [
+    {
+      "kode_barang": "125321",
+      "id_transaksi": "INV-B-12321321321",
+      "nama_barang": "Biji Plastik",
+      "kuantitas": "20",
+      "harga_satuan": "Rp. 100.000",
+      "nominal": "Rp. 200.000.000"
+    },
+    {
+      "kode_barang": "125321",
+      "id_transaksi": "INV-B-12321321321",
+      "nama_barang": "Biji Plastik",
+      "kuantitas": "20",
+      "harga_satuan": "Rp. 100.000",
+      "nominal": "Rp. 200.000.000"
+    }
+  ]
+}
