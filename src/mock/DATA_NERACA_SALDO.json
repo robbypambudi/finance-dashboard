@@ -1,0 +1,26 @@
+[
+  {
+    "kode": "102",
+    "akun": "Kas",
+    "saldo_debit": "Rp. 25.120.000",
+    "saldo_kredit": "Rp. 0"
+  },
+  {
+    "kode": "103",
+    "akun": "Bank Central Asia (BCA)",
+    "saldo_debit": "Rp. 1.000.000",
+    "saldo_kredit": "Rp. 0"
+  },
+  {
+    "kode": "104",
+    "akun": "Piutang Usaha",
+    "saldo_debit": "Rp. 1.000.000",
+    "saldo_kredit": "Rp. 0"
+  },
+  {
+    "kode": "104",
+    "akun": "Pendapatan",
+    "saldo_debit": "Rp. 1.000.000",
+    "saldo_kredit": "Rp. 0"
+  }
+]

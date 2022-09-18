@@ -1,0 +1,13 @@
+[
+  {
+    "invoice": "1234567",
+    "tipe": "Hutang",
+    "tanggal": "07 Sep 2022",
+    "jatuh_tempo": "07 Sep 2022",
+    "umur": 7,
+    "jumlah": "Rp. 10.000.000",
+    "dibayar": "Rp. 10.000.000",
+    "status": "Lunas",
+    "catatan": "Hutang untuk andin"
+  }
+]
