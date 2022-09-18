@@ -1,15 +1,18 @@
-import DashboardShellAdmin from '../layouts/admin/DashboarsShellAdmin';
+import DashboardShellAdmin from '../../layouts/admin/DashboarsShellAdmin';
 import {
   useReactTable,
   getCoreRowModel,
   createColumnHelper,
   flexRender,
 } from '@tanstack/react-table';
-import Data_Transaksi from '../mock/DATA_HISTORY_TRANSAKSI.json';
-import { Jenis_Debit, Jenis_Kredit, Jenis_Transaksi } from '../lib/constant';
+import Data_Transaksi from '../../mock/DATA_HISTORY_TRANSAKSI.json';
+import { Jenis_Debit, Jenis_Kredit, Jenis_Transaksi } from '../../lib/constant';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-export default function Transaksi() {
+import { FaEdit, FaEye, FaTrash } from 'react-icons/fa';
+import { AiOutlinePrinter } from 'react-icons/ai';
+import SelectInput from '../../components/SelectInput';
+export default function TransaksiUmum() {
   const columnHelper = createColumnHelper();
   const data = useMemo(() => Data_Transaksi, [Data_Transaksi]);
   const columns = [
@@ -29,11 +32,18 @@ export default function Transaksi() {
       cell: (info) => {
         const href = info.getValue();
         return (
-          <div>
+          <div className='flex flex-col gap-y-2 w-10 items-center'>
             <Link to={`/transaksi/${href}`}>
-              <p className='hover:bg-gray-600 hover:text-white rounded px-2 py-1'>
-                Lihat
-              </p>
+              <FaEye size={14} className='hover:text-green-500 ' />
+            </Link>
+            <Link to={`/transaksi/invoice/${href}`}>
+              <AiOutlinePrinter size={14} className='hover:text-green-500 ' />
+            </Link>
+            <Link to={`/transaksi/edit/${href}`}>
+              <FaEdit size={14} className='hover:text-green-500 ' />
+            </Link>
+            <Link to={`/transaksi/invoice/${href}`}>
+              <FaTrash size={14} className='hover:text-green-500 ' />
             </Link>
           </div>
         );
@@ -64,7 +74,7 @@ export default function Transaksi() {
             </button>
           </div>
           <div className='grid grid-cols-2 p-4 gap-x-2'>
-            <div className='bg-white rounded border border-gray-200 shadow-md p-3 h-max'>
+            <div className='bg-white rounded border border-gray-200 shadow-md p-3 h-max '>
               <h2 className='font-secondary border-b border-b-gray-400 text-2xl'>
                 Tambah Transaksi
               </h2>
@@ -89,17 +99,6 @@ export default function Transaksi() {
                           {jenis.name}{' '}
                         </option>
                       );
-                    })}
-                  </select>
-                </div>
-                <div className='flex flex-col'>
-                  <label className='my-2'>Untuk Biaya (Debit) </label>
-                  <select
-                    className='bg-gray-100 px-4 py-2 rounded-md border border-gray-400 shadow'
-                    type='select'
-                  >
-                    {Jenis_Debit.map((jenis, index) => {
-                      return <option key={index}>{jenis.name}</option>;
                     })}
                   </select>
                 </div>
