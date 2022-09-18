@@ -1,7 +1,10 @@
 import Login from '../pages/Auth/Login';
 import Dashboard from '../pages/Dashboard';
 import InvoiceBarang from '../pages/Invoice/InvoiceBarang';
+import Kontak from '../pages/Kontak/Kontak';
+import HutangPiutang from '../pages/Laporan/HutangPiutang';
 import JurnalUmum from '../pages/Laporan/JurnalUmum';
+import LabaRugi from '../pages/Laporan/LabaRugi';
 import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
 import StokBarang from '../pages/Stok/Barang';
 import TransaksiBarang from '../pages/Transaksi/TransaksiBarang';
@@ -20,11 +23,31 @@ const routes = [
     visible: true,
     exact: true,
   },
+
+  // Laporan
   {
     path: '/laporan/neraca_saldo',
     element: (
       <AuthRoute>
         <NeracaSaldo />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/laporan/laba_rugi',
+    element: (
+      <AuthRoute>
+        <LabaRugi />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/laporan/hutang_piutang',
+    element: (
+      <AuthRoute>
+        <HutangPiutang />
       </AuthRoute>
     ),
     visible: true,
@@ -61,6 +84,15 @@ const routes = [
     element: (
       <AuthRoute>
         <StokBarang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/kontak',
+    element: (
+      <AuthRoute>
+        <Kontak />
       </AuthRoute>
     ),
     visible: true,
