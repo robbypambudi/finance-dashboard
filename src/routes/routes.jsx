@@ -3,6 +3,7 @@ import Dashboard from '../pages/Dashboard';
 import InvoiceBarang from '../pages/Invoice/InvoiceBarang';
 import JurnalUmum from '../pages/Laporan/JurnalUmum';
 import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
+import StokBarang from '../pages/Stok/Barang';
 import TransaksiBarang from '../pages/Transaksi/TransaksiBarang';
 import TransaksiUmum from '../pages/Transaksi/TransaksiUmum';
 import AuthRoute from './AuthRoute';
@@ -51,6 +52,15 @@ const routes = [
     element: (
       <AuthRoute>
         <JurnalUmum />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/stock-barang',
+    element: (
+      <AuthRoute>
+        <StokBarang />
       </AuthRoute>
     ),
     visible: true,
