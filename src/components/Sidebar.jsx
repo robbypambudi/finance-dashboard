@@ -4,6 +4,7 @@ import { BiTask } from 'react-icons/bi';
 import { GrTransaction } from 'react-icons/gr';
 import { FaBoxes } from 'react-icons/fa';
 import { HiViewGrid, HiUser, HiXCircle, HiLogout } from 'react-icons/hi';
+import { AiFillContacts } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 const navigation = [
   {
@@ -64,6 +65,12 @@ const navigation = [
         current: false,
       },
     ],
+  },
+  {
+    name: 'Kontak',
+    href: '/kontak',
+    icon: AiFillContacts,
+    dropdown: false,
   },
   {
     name: 'Stok Barang',
