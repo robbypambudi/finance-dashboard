@@ -1,4 +1,4 @@
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { BiTask } from 'react-icons/bi';
 import { GrTransaction } from 'react-icons/gr';
@@ -10,6 +10,7 @@ const navigation = [
     href: '/',
     icon: HiViewGrid,
     current: false,
+    dropdown: false,
   },
 
   {
@@ -17,11 +18,51 @@ const navigation = [
     href: '/transaksi',
     icon: GrTransaction,
     current: false,
+    dropdown: true,
+    dropdownList: [
+      {
+        name: 'Transaksi Umum',
+        href: '/transaksi/umum',
+        icon: GrTransaction,
+      },
+      {
+        name: 'Transaksi Barang',
+        href: '/transaksi/barang',
+        icon: GrTransaction,
+      },
+    ],
   },
   {
     name: 'Laporan',
     href: '/laporan',
     icon: BiTask,
+    dropdown: true,
+    dropdownList: [
+      {
+        name: 'Laporan Laba Rugi',
+        href: '/laporan/laba_rugi',
+        icon: GrTransaction,
+        current: false,
+      },
+      {
+        name: 'Laporan Hutang Piutang',
+        href: '/laporan/hutang_piutang',
+        icon: GrTransaction,
+        current: false,
+      },
+      {
+        name: 'Laporan Neraca Saldo',
+        href: '/laporan/neraca_saldo',
+        icon: GrTransaction,
+        current: false,
+      },
+      {
+        name: 'Laporan Jurnal Umum',
+        href: '/laporan/jurnal_umum',
+        icon: GrTransaction,
+        current: false,
+      },
+    ],
   },
 ];
 
@@ -87,20 +128,26 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                 <div className='px-2 space-y-1 flex flex-col'>
                   {/*
                    */}
-                  {navigation.map((item, index) => (
-                    <Link key={index} to={item.href}>
-                      <div
-                        className={`p-3 rounded-md ${
-                          nav === item.name
-                            ? 'bg-white text-dashboard-100'
-                            : 'text-white'
-                        }`}
-                      >
-                        <item.icon size={24} key={item.name} />
-                        {item.name}
-                      </div>
-                    </Link>
-                  ))}
+                  {navigation.map((item, index) => {
+                    if (item.dropdown) {
+                      return null;
+                    } else {
+                      return (
+                        <Link key={index} to={item.href}>
+                          <div
+                            className={`p-3 rounded-md ${
+                              nav === item.name
+                                ? 'bg-white text-dashboard-100'
+                                : 'text-white'
+                            }`}
+                          >
+                            <item.icon size={24} key={item.name} />
+                            {item.name}
+                          </div>
+                        </Link>
+                      );
+                    }
+                  })}
                 </div>
               </nav>
             </div>
@@ -130,21 +177,65 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
               aria-label='Sidebar'
             >
               <div className='px-2 space-y-1 flex flex-col'>
-                {/* Maping */}
-                {navigation.map((item, index) => (
-                  <Link key={index} to={item.href}>
-                    <div
-                      className={`p-3 rounded-md flex items-center gap-x-3 ${
-                        nav === item.name
-                          ? 'bg-white text-dashboard'
-                          : 'text-white'
-                      }`}
-                    >
-                      <item.icon size={24} key={item.name} />
-                      {item.name}
-                    </div>
-                  </Link>
-                ))}
+                {/*
+                 */}
+                {navigation.map((item, index) => {
+                  if (item.dropdown) {
+                    return (
+                      <>
+                        <Menu
+                          className='  flex items-start gap-x-3 flex-col '
+                          as='div'
+                        >
+                          <Menu.Button
+                            className={
+                              'flex justify-start  rounded-md p-3 w-full gap-x-3 hover:bg-white text-white hover:text-black'
+                            }
+                          >
+                            <item.icon size={24} key={item.name} />
+                            {item.name}
+                          </Menu.Button>
+                          <Transition
+                            enter='transition duration-100 ease-out'
+                            enterFrom='transform scale-95 opacity-0'
+                            enterTo='transform scale-100 opacity-100'
+                            leave='transition duration-75 ease-out'
+                            leaveFrom='transform scale-100 opacity-100'
+                            leaveTo='transform scale-95 opacity-0'
+                          >
+                            <Menu.Items className='flex flex-col p-3 gap-y-2'>
+                              {item.dropdownList.map((item, index) => (
+                                <Menu.Item>
+                                  <Link
+                                    to={item.href}
+                                    className='bg-white px-2 py-1 rounded-md'
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </Menu.Item>
+                              ))}
+                            </Menu.Items>
+                          </Transition>
+                        </Menu>
+                      </>
+                    );
+                  } else {
+                    return (
+                      <Link key={index} to={item.href}>
+                        <div
+                          className={`p-3 rounded-md flex items-center gap-x-3 ${
+                            nav === item.name
+                              ? 'bg-white text-dashboard'
+                              : 'text-white'
+                          }`}
+                        >
+                          <item.icon size={24} key={item.name} />
+                          {item.name}
+                        </div>
+                      </Link>
+                    );
+                  }
+                })}
               </div>
             </nav>
             <div className='bottom-10 -translate-y-6'>

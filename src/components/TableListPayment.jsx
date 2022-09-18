@@ -4,7 +4,7 @@ import {
   flexRender,
 } from '@tanstack/react-table';
 
-export default function Table({ data, columns }) {
+export default function TableListPayment({ data, columns }) {
   const table = useReactTable({
     data,
     columns,
@@ -42,6 +42,22 @@ export default function Table({ data, columns }) {
           </tr>
         ))}
       </tbody>
+      <tfoot>
+        {table.getFooterGroups().map((footerGroup) => (
+          <tr key={footerGroup.id}>
+            {footerGroup.headers.map((header) => (
+              <th key={header.id}>
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
+                      header.column.columnDef.footer,
+                      header.getContext(),
+                    )}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </tfoot>
     </table>
   );
 }
