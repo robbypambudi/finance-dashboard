@@ -47,7 +47,7 @@ function DebouncedInput({
   );
 }
 
-export default function Table({ data, columns }) {
+export default function TableListHutangPiutang({ data, columns }) {
   const [globalFilter, setGlobalFilter] = useState('');
   const [columnResizeMode, setColumnResizeMode] = useState('onChange');
 
@@ -78,6 +78,26 @@ export default function Table({ data, columns }) {
         className='p-2 font-lg shadow border border-block'
         placeholder='Search all columns...'
       />
+      <h2 className='text-2xl text-center font-bold'>List Transaksi Barang</h2>
+      <div className='my-4 flex items-center'>
+        <div>
+          <input className='mx-4' type='checkbox'></input>
+          <label>Hutang</label>
+        </div>
+        <div>
+          <input className='mx-4' type='checkbox'></input>
+          <label>Piutang</label>
+        </div>
+        <div>
+          <input className='mx-4' type='checkbox'></input>
+          <label>Lunas</label>
+        </div>
+        <div>
+          <input className='mx-4' type='checkbox'></input>
+          <label>Panding</label>
+        </div>
+      </div>
+
       <table className='table-auto border-collapse border border-slate-500 w-full text-center mt-4'>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

@@ -22,7 +22,7 @@ const navigation = [
     href: '/transaksi',
     icon: AiOutlineTransaction,
     current: false,
-    dropdown: true,
+    dropdown: false,
     dropdownList: [
       {
         name: 'Transaksi  ',
@@ -70,7 +70,7 @@ const navigation = [
     dropdownList: [
       {
         name: 'Laporan Transaksi',
-        href: '/laporan/laba_rugi',
+        href: '/laporan/transaksi',
         icon: GrTransaction,
         current: false,
       },

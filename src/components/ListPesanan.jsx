@@ -59,7 +59,7 @@ export default function ListPesanan() {
         <input
           className='bg-gray-100 px-4 py-2 rounded-md border border-gray-400 shadow w-64'
           placeholder='Transaksi'
-          value='Pembelian'
+          value='Robby Pambudi'
           readonly={true}
         ></input>
       </div>
