@@ -1,28 +1,46 @@
-import DashboardShellAdmin from '../../layouts/admin/DashboarsShellAdmin';
+import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
 import {
   useReactTable,
   getCoreRowModel,
   createColumnHelper,
   flexRender,
 } from '@tanstack/react-table';
-import Data_Transaksi from '../../mock/DATA_HISTORY_TRANSAKSI.json';
-import { Jenis_Debit, Jenis_Kredit, Jenis_Transaksi } from '../../lib/constant';
+import Data_Transaksi from '../../../mock/DATA_HISTORY_TRANSAKSI.json';
+import {
+  Jenis_Debit,
+  Jenis_Kredit,
+  Jenis_Transaksi,
+} from '../../../lib/constant';
+import PajakInput from '../../../components/PajakInput';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEdit, FaEye, FaTrash } from 'react-icons/fa';
 import { AiOutlinePrinter } from 'react-icons/ai';
-import SelectInput from '../../components/SelectInput';
+import SelectInput from '../../../components/SelectInput';
+import Table from '../../../components/Table';
 export default function TransaksiUmum() {
   const columnHelper = createColumnHelper();
   const data = useMemo(() => Data_Transaksi, [Data_Transaksi]);
   const columns = [
+    columnHelper.accessor('id', {
+      cell: (info) => info.getValue(),
+      header: () => <span>Kode</span>,
+    }),
     columnHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
       header: () => <span>Tanggal</span>,
     }),
     columnHelper.accessor('nama_transaksi', {
       cell: (info) => info.getValue(),
-      header: () => <span>Nama Transaksi</span>,
+      header: () => <span>Jenis Transaksi</span>,
+    }),
+    columnHelper.accessor('nominal', {
+      cell: (info) => info.getValue(),
+      header: () => <span>Sales</span>,
+    }),
+    columnHelper.accessor('sales', {
+      cell: (info) => info.getValue(),
+      header: () => <span>Sales</span>,
     }),
     columnHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
@@ -32,18 +50,18 @@ export default function TransaksiUmum() {
       cell: (info) => {
         const href = info.getValue();
         return (
-          <div className='flex flex-col gap-y-2 w-10 items-center'>
+          <div className='flex flex-col gap-y-2 items-center justify-center'>
             <Link to={`/transaksi/${href}`}>
-              <FaEye size={14} className='hover:text-green-500 ' />
+              <FaEye size={24} className='hover:text-green-500 ' />
             </Link>
             <Link to={`/invoice/penjual/${href}`}>
-              <AiOutlinePrinter size={14} className='hover:text-green-500 ' />
+              <AiOutlinePrinter size={24} className='hover:text-green-500 ' />
             </Link>
             <Link to={`/transaksi/edit/${href}`}>
-              <FaEdit size={14} className='hover:text-green-500 ' />
+              <FaEdit size={24} className='hover:text-green-500 ' />
             </Link>
             <Link to={`/transaksi/invoice/${href}`}>
-              <FaTrash size={14} className='hover:text-green-500 ' />
+              <FaTrash size={24} className='hover:text-green-500 ' />
             </Link>
           </div>
         );
@@ -62,18 +80,8 @@ export default function TransaksiUmum() {
       <DashboardShellAdmin nav={'Transaksi'}>
         <div className='px-4'>
           <h1 className='font-primary text-3xl text-center my-3'>Transaksi</h1>
-          <div className='w-full flex justify-center items-center gap-x-4'>
-            <button className='px-4 py-2 bg-gray-300 rounded-lg'>
-              <p>Export To Excel</p>
-            </button>
-            <button className='px-4 py-2 bg-gray-300 rounded-lg'>
-              <p>Export To CSV</p>
-            </button>
-            <button className='px-4 py-2 bg-gray-300 rounded-lg'>
-              <p>Export To PDF</p>
-            </button>
-          </div>
-          <div className='grid grid-cols-2 p-4 gap-x-2'>
+
+          <div className='grid grid-cols-1 p-4 gap-x-2'>
             <div className='bg-white rounded border border-gray-200 shadow-md p-3 h-max '>
               <h2 className='font-secondary border-b border-b-gray-400 text-2xl'>
                 Tambah Transaksi
@@ -129,6 +137,8 @@ export default function TransaksiUmum() {
                     type='text'
                   />
                 </div>
+                <PajakInput />
+
                 <div className='flex flex-col'>
                   <label className='my-2'>Kontak</label>
                   <input
@@ -146,47 +156,21 @@ export default function TransaksiUmum() {
             </div>
             <div className='max-h-screen '>
               <div className='bg-white rounded border border-gray-200 shadow-md p-3'>
+                <div className='w-full flex justify-center items-center gap-x-4'>
+                  <button className='px-4 py-2 bg-gray-300 rounded-lg'>
+                    <p>Export To Excel</p>
+                  </button>
+                  <button className='px-4 py-2 bg-gray-300 rounded-lg'>
+                    <p>Export To CSV</p>
+                  </button>
+                  <button className='px-4 py-2 bg-gray-300 rounded-lg'>
+                    <p>Export To PDF</p>
+                  </button>
+                </div>
                 <h2 className='font-secondary border-b border-b-gray-400 text-2xl mb-6'>
                   History Transaksi
                 </h2>
-                <table className='table-auto border-collapse border border-slate-500'>
-                  <thead>
-                    {table.getHeaderGroups().map((headerGroup) => (
-                      <tr key={headerGroup.id}>
-                        {headerGroup.headers.map((header) => (
-                          <th
-                            key={header.id}
-                            className='border border-slate-600 bg-gray-100 '
-                          >
-                            {header.isPlaceholder
-                              ? null
-                              : flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext(),
-                                )}
-                          </th>
-                        ))}
-                      </tr>
-                    ))}
-                  </thead>
-                  <tbody>
-                    {table.getRowModel().rows.map((row) => (
-                      <tr key={row.id} className='hover:bg-gray-200 '>
-                        {row.getVisibleCells().map((cell) => (
-                          <td
-                            key={cell.id}
-                            className='border border-slate-700 p-2'
-                          >
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext(),
-                            )}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <Table data={data} columns={columns} />
               </div>
             </div>
           </div>

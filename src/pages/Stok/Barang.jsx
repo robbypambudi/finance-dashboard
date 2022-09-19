@@ -26,6 +26,10 @@ export default function StokBarang() {
         }),
       ],
     }),
+    columnHelper.accessor('stock_awal', {
+      cell: (info) => info.getValue(),
+      header: <span>Stock Awal</span>,
+    }),
 
     columnHelper.group({
       header: 'Laporan Barang',
@@ -38,11 +42,11 @@ export default function StokBarang() {
           cell: (info) => info.getValue(),
           header: <span>Keluar</span>,
         }),
-        columnHelper.accessor('tersedia', {
-          cell: (info) => info.getValue(),
-          header: <span>Tersedia</span>,
-        }),
       ],
+    }),
+    columnHelper.accessor('stock_akhir', {
+      cell: (info) => info.getValue(),
+      header: <span>Stock Akhir</span>,
     }),
   ];
   return (

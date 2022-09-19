@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-table';
 
 // Mock Data
-import DATA_HISTORY_TRANSAKSI_BARANG from '../../mock/DATA_HISTORY_TRANSAKSI_BARANG.json';
+import DATA_HISTORY_TRANSAKSI_BARANG_PENJUALAN from '../../mock/DATA_HISTORY_TRANSAKSI_BARANG_PEMBELIAN.json';
 import DATA_BARANG from '../../mock/DATA_BARANG.json';
 import KONTAK_PERSON from '../../mock/KONTAK_PERSON.json';
 import LIST_PEMESANAN from '../../mock/LIST_PEMESANAN.json';
@@ -24,7 +24,7 @@ import ListPesanan from '../../components/ListPesanan';
 
 export default function TransaksiPembelian() {
   const columnHelper = createColumnHelper();
-  const data = useMemo(() => DATA_HISTORY_TRANSAKSI_BARANG, []);
+  const data = useMemo(() => DATA_HISTORY_TRANSAKSI_BARANG_PENJUALAN, []);
   const columns = [
     columnHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
@@ -45,6 +45,10 @@ export default function TransaksiPembelian() {
     columnHelper.accessor('nominal', {
       cell: (info) => <p className='w-32'>{info.getValue()}</p>,
       header: () => <span>Nominal</span>,
+    }),
+    columnHelper.accessor('status', {
+      cell: (info) => <p>{info.getValue()}</p>,
+      header: () => <span>Status</span>,
     }),
     columnHelper.accessor('catatan', {
       cell: (info) => <p className='w-64'>{info.getValue()}</p>,
@@ -310,44 +314,9 @@ export default function TransaksiPembelian() {
                 <h2 className='font-secondary border-b border-b-gray-400 text-2xl mb-6'>
                   History Transaksi Pembelian
                 </h2>
-                <table className='table-auto border-collapse border border-slate-500 w-full text-center'>
-                  <thead>
-                    {table.getHeaderGroups().map((headerGroup) => (
-                      <tr key={headerGroup.id}>
-                        {headerGroup.headers.map((header) => (
-                          <th
-                            key={header.id}
-                            className='border border-slate-600 bg-gray-100 '
-                          >
-                            {header.isPlaceholder
-                              ? null
-                              : flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext(),
-                                )}
-                          </th>
-                        ))}
-                      </tr>
-                    ))}
-                  </thead>
-                  <tbody>
-                    {table.getRowModel().rows.map((row) => (
-                      <tr key={row.id} className='hover:bg-gray-200 '>
-                        {row.getVisibleCells().map((cell) => (
-                          <td
-                            key={cell.id}
-                            className='border border-slate-700 p-2'
-                          >
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext(),
-                            )}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <div className='w-full overflow-auto'>
+                  <Table columns={ListPemesananColumns} data={LIST_PEMESANAN} />
+                </div>
               </div>
             </div>
           </div>
