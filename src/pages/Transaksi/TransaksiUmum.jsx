@@ -36,7 +36,7 @@ export default function TransaksiUmum() {
             <Link to={`/transaksi/${href}`}>
               <FaEye size={14} className='hover:text-green-500 ' />
             </Link>
-            <Link to={`/transaksi/invoice/${href}`}>
+            <Link to={`/invoice/penjual/${href}`}>
               <AiOutlinePrinter size={14} className='hover:text-green-500 ' />
             </Link>
             <Link to={`/transaksi/edit/${href}`}>
