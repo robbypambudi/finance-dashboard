@@ -1,6 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { Link } from 'react-router-dom';
 import Table from '../../components/Table';
+import TableListHutangPiutang from '../../components/TableListHutangPiutang';
 import DashboardShellAdmin from '../../layouts/admin/DashboarsShellAdmin';
 
 import DATA_HUTANG_PIUTANG from '../../mock/DATA_HUTANG_PIUTANG.json';
@@ -72,7 +73,7 @@ export default function HutangPiutang() {
           </div>
           <div className='h-max w-full flex items-center justify-center mt-5'>
             <div className='bg-white p-4 rounded border border-gray-300 shadow-md'>
-              <Table
+              <TableListHutangPiutang
                 columns={COLUMNS_HUTANG_PIUTANG}
                 data={DATA_HUTANG_PIUTANG}
               />
