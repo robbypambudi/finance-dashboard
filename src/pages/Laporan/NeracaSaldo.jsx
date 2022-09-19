@@ -21,7 +21,7 @@ export default function NeracaSaldo() {
       ),
     }),
     columnsHelper.accessor('saldo_debit', {
-      header: <span>Saldo Debit</span>,
+      header: <span>Saldo Kredit</span>,
       cell: (info) => info.getValue(),
       footer: (
         <div classname='text-start'>
