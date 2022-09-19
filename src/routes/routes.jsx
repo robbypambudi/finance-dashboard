@@ -13,7 +13,7 @@ import TranskasiBarangEdit from '../pages/Transaksi/Dashboard/Edit';
 import TransaksiBarang from '../pages/Transaksi/TransaksiBarang';
 import TransaksiPembelian from '../pages/Transaksi/TransaksiPembelian';
 import TransaksiPenjualan from '../pages/Transaksi/TransaksiPenjualan';
-import TransaksiUmum from '../pages/Transaksi/TransaksiUmum';
+import TransaksiUmum from '../pages/Transaksi/Umum/TransaksiUmum';
 import AuthRoute from './AuthRoute';
 import GuestRoute from './GuestRoute';
 
@@ -60,7 +60,7 @@ const routes = [
 
   // Transaksi
   {
-    path: '/transaksi/umum',
+    path: '/transaksi',
     element: (
       <AuthRoute>
         <TransaksiUmum />
