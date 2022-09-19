@@ -5,6 +5,8 @@ import { GrTransaction } from 'react-icons/gr';
 import { FaBoxes } from 'react-icons/fa';
 import { HiViewGrid, HiUser, HiXCircle, HiLogout } from 'react-icons/hi';
 import { AiFillContacts } from 'react-icons/ai';
+import { AiOutlineTransaction } from 'react-icons/ai';
+import { FcInTransit } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 const navigation = [
   {
@@ -16,30 +18,62 @@ const navigation = [
   },
 
   {
-    name: 'Transaksi',
+    name: 'Transaksi Umum',
     href: '/transaksi',
-    icon: GrTransaction,
+    icon: AiOutlineTransaction,
     current: false,
     dropdown: true,
     dropdownList: [
       {
-        name: 'Transaksi Umum',
-        href: '/transaksi/umum',
+        name: 'Transaksi  ',
+        href: '/transaksi/penjualan',
         icon: GrTransaction,
       },
       {
-        name: 'Transaksi Barang',
-        href: '/transaksi/barang',
+        name: 'Transaksi ',
+        href: '/transaksi/pembelian',
         icon: GrTransaction,
       },
     ],
   },
+  {
+    name: 'Transaksi Barang',
+    href: '/transaksi',
+    icon: FcInTransit,
+    current: false,
+    dropdown: true,
+    dropdownList: [
+      {
+        name: 'Dashboard Barang ',
+        href: '/transaksi/barang',
+        icon: GrTransaction,
+      },
+      {
+        name: 'Transaksi Penjualan ',
+        href: '/transaksi/penjualan',
+        icon: GrTransaction,
+      },
+      {
+        name: 'Transaksi Pembelian',
+        href: '/transaksi/pembelian',
+        icon: GrTransaction,
+      },
+    ],
+  },
+
+  // Laporan
   {
     name: 'Laporan',
     href: '/laporan',
     icon: BiTask,
     dropdown: true,
     dropdownList: [
+      {
+        name: 'Laporan Transaksi',
+        href: '/laporan/laba_rugi',
+        icon: GrTransaction,
+        current: false,
+      },
       {
         name: 'Laporan Laba Rugi',
         href: '/laporan/laba_rugi',
