@@ -1,0 +1,42 @@
+[
+  {
+    "id_transaksi": "BRG-1234",
+    "tanggal": "12/02/2022",
+    "jenis": "Pembelian",
+    "nama": "Pak Briand",
+    "nominal": "Rp. 100.000",
+    "status": "On Going",
+    "sales": "Robby",
+    "catatan": "Barang Masi dalam pengangkutan dan tersisa 10 Box"
+  },
+  {
+    "id_transaksi": "BRG-1236",
+    "tanggal": "12/02/2022",
+    "jenis": "Pembelian",
+    "nama": "Pak Briand",
+    "nominal": "Rp. 100.000",
+    "status": "Terkirim",
+    "sales": "Robby",
+    "catatan": "Barang Terkirim Dengan Baik"
+  },
+  {
+    "id_transaksi": "BRG-1237",
+    "tanggal": "12/02/2022",
+    "jenis": "Pembelian",
+    "nama": "Pak Briand",
+    "nominal": "Rp. 100.000",
+    "status": "Panding",
+    "sales": "Robby",
+    "catatan": "Barang Terkendala Pada Cek Giro Tidak Bisa Dicairkan"
+  },
+  {
+    "id_transaksi": "BRG-1237",
+    "tanggal": "12/02/2022",
+    "jenis": "Pembelian",
+    "nama": "Pak Briand",
+    "nominal": "Rp. 100.000",
+    "status": "Dibatalkan",
+    "sales": "Robby",
+    "catatan": "Barang Tidak Dikirim Karena Mengunakan Cek Palsu"
+  }
+]

@@ -6,7 +6,8 @@
     "barang_masuk": "20",
     "barang_keluar": "200",
     "satuan": "Kg",
-    "tersedia": "2000"
+    "stock_akhir": "2000",
+    "stock_awal": "100"
   },
   {
     "kode": "1002",
@@ -15,6 +16,7 @@
     "barang_masuk": "20",
     "barang_keluar": "200",
     "satuan": "Kg",
-    "tersedia": "1000"
+    "stock_akhir": "2000",
+    "stock_awal": "100"
   }
 ]

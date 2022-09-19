@@ -1,0 +1,35 @@
+[
+  {
+    "id": "0001",
+    "tanggal": "18/08/2022",
+    "kontak": "Pak Briand",
+    "jenis_transaksi": "Pembelian",
+    "no_telp": "085257188594",
+    "nominal": "Rp 440.000.000",
+    "status": "On Going",
+    "catatan": "Barang mengalami kendala",
+    "invoice": "INV-203332"
+  },
+  {
+    "id": "0001",
+    "tanggal": "18/08/2022",
+    "kontak": "Pak Briand",
+    "jenis_transaksi": "Pembelian",
+    "no_telp": "085257188594",
+    "nominal": "Rp 440.000.000",
+    "status": "On Going",
+    "catatan": "Barang mengalami kendala",
+    "invoice": "INV-203332"
+  },
+  {
+    "id": "0021",
+    "tanggal": "18/08/2022",
+    "kontak": "Pak Briand",
+    "jenis_transaksi": "Pembelian",
+    "no_telp": "085257188594",
+    "status": "Diterima",
+    "nominal": "Rp 440.000.000",
+    "catatan": "Barang mengalami kendala",
+    "invoice": "INV-203332"
+  }
+]
