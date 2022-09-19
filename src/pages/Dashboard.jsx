@@ -54,7 +54,7 @@ export default function Dashboard() {
               <Chart
                 options={ChartData.options}
                 series={ChartData.series}
-                type='bar'
+                type='line'
                 width='96%'
               />
             </div>

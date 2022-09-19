@@ -1,13 +1,18 @@
 import Login from '../pages/Auth/Login';
 import Dashboard from '../pages/Dashboard';
 import InvoiceBarang from '../pages/Invoice/InvoiceBarang';
+import InvoicePenjual from '../pages/Invoice/InvoicePenjual';
 import Kontak from '../pages/Kontak/Kontak';
 import HutangPiutang from '../pages/Laporan/HutangPiutang';
 import JurnalUmum from '../pages/Laporan/JurnalUmum';
 import LabaRugi from '../pages/Laporan/LabaRugi';
 import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
 import StokBarang from '../pages/Stok/Barang';
+import DashboardBarang from '../pages/Transaksi/Dashboard/Barang';
+import TranskasiBarangEdit from '../pages/Transaksi/Dashboard/Edit';
 import TransaksiBarang from '../pages/Transaksi/TransaksiBarang';
+import TransaksiPembelian from '../pages/Transaksi/TransaksiPembelian';
+import TransaksiPenjualan from '../pages/Transaksi/TransaksiPenjualan';
 import TransaksiUmum from '../pages/Transaksi/TransaksiUmum';
 import AuthRoute from './AuthRoute';
 import GuestRoute from './GuestRoute';
@@ -52,11 +57,58 @@ const routes = [
     ),
     visible: true,
   },
+
+  // Transaksi
   {
     path: '/transaksi/umum',
     element: (
       <AuthRoute>
         <TransaksiUmum />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/transaksi/barang',
+    element: (
+      <AuthRoute>
+        <DashboardBarang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/transaksi/penjualan',
+    element: (
+      <AuthRoute>
+        <TransaksiPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/transaksi/pembelian',
+    element: (
+      <AuthRoute>
+        <TransaksiPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/transaksi/barang/edit/:id',
+    element: (
+      <AuthRoute>
+        <TranskasiBarangEdit />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/transaksi/barang/view/:id',
+    element: (
+      <AuthRoute>
+        <TranskasiBarangEdit />
       </AuthRoute>
     ),
     visible: true,
@@ -113,6 +165,15 @@ const routes = [
     element: (
       <AuthRoute>
         <InvoiceBarang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/invoice/penjual/:id',
+    element: (
+      <AuthRoute>
+        <InvoicePenjual />
       </AuthRoute>
     ),
     visible: true,
