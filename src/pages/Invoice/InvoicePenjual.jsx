@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import TableListPayment from '../../components/TableListPayment';
 import DashboardShellAdmin from '../../layouts/admin/DashboarsShellAdmin';
 import INVOICE_BARANG from '../../mock/INVOICE_BARANG.json';
-export default function InvoiceBarang() {
+export default function InvoicePenjual() {
   let { id } = useParams();
   const columnHelper = createColumnHelper();
 
@@ -28,7 +28,7 @@ export default function InvoiceBarang() {
         <>
           <div className='flex flex-col gap-y-2 items-start justify-start'>
             <span>Sub Total :</span>
-            <span>PPN 11 % :</span>
+            <span>PPH 11% :</span>
             <span>Grand Total : </span>
           </div>
         </>
@@ -40,9 +40,9 @@ export default function InvoiceBarang() {
       footer: (
         <>
           <div className='flex flex-col gap-y-2 items-start justify-start'>
-            <span>Rp. 400.000.000</span>
-            <span>Rp 44.000.000</span>
-            <span>Rp 444.000.000</span>
+            <span>Rp. 100.000.000</span>
+            <span>Rp 1.100.000</span>
+            <span>Rp 111.000.000</span>
           </div>
         </>
       ),
@@ -63,7 +63,7 @@ export default function InvoiceBarang() {
                 Export Excel
               </button>
             </Link>
-            <Link
+            {/* <Link
               to={`${process.env.PUBLIC_URL}/assets/excel/ExcelSuratJalan.xlsx`}
               target='_blank'
               download={true}
@@ -71,7 +71,7 @@ export default function InvoiceBarang() {
               <button className='bg-blue-500 px-4 py-2 rounded border border-blue-600 shadow text-white'>
                 Export Surat Jalan
               </button>
-            </Link>
+            </Link> */}
             <button className='bg-blue-500 px-4 py-2 rounded border border-blue-600 shadow text-white'>
               Export Faktur
             </button>
@@ -82,7 +82,7 @@ export default function InvoiceBarang() {
           <div className=' bg-white border border-gray-400 rounded shadow my-4 py-4'>
             <div className='flex items-center justify-center flex-col'>
               <h2 className='text-2xl font-bold font-primary'>
-                Invoice Barang
+                Invoice Penjualan
               </h2>
               <p>No Invoice : {INVOICE_BARANG.invoice_id}</p>
             </div>
