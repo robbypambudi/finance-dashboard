@@ -45,10 +45,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     function setLoadingFalse() {
       const token = localStorage.getItem('token');
-      dispatch('LOGIN', {
-        type: 'admin',
-        data: 'Hallo Semuanya',
-      });
+      if (token) {
+        dispatch('LOGIN', {
+          type: 'admin',
+          data: 'Hallo Semuanya',
+        });
+      }
 
       dispatch('STOP_LOADING');
     }
