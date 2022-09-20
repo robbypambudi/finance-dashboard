@@ -36,7 +36,7 @@ export default function TransaksiUmum() {
     }),
     columnHelper.accessor('nominal', {
       cell: (info) => info.getValue(),
-      header: () => <span>Sales</span>,
+      header: () => <span>Nominal</span>,
     }),
     columnHelper.accessor('sales', {
       cell: (info) => info.getValue(),

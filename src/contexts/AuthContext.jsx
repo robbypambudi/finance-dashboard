@@ -19,6 +19,11 @@ const reducer = (state, { type, payload }) => {
         user_type: payload.type,
         user: payload,
       };
+    case 'LOGOUT':
+      return {
+        ...state,
+        authenticated: false,
+      };
 
     case 'STOP_LOADING':
       return {
@@ -39,6 +44,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     function setLoadingFalse() {
+      const token = localStorage.getItem('token');
+      dispatch('LOGIN', {
+        type: 'admin',
+        data: 'Hallo Semuanya',
+      });
+
       dispatch('STOP_LOADING');
     }
     setLoadingFalse();

@@ -1,10 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { HiOutlineMail } from 'react-icons/hi';
 import { RiLockPasswordFill } from 'react-icons/ri';
+import { useAuthDispatch } from '../../contexts/AuthContext';
+
 export default function Login() {
   const { register, handleSubmit } = useForm();
+  const dispatch = useAuthDispatch();
   const onSubmit = (data) => {
-    console.log(data);
+    if (data.nrp === '1234' && data.password === '1234') {
+      localStorage.setItem('token', 'Hallo Semua Aku Robby');
+      dispatch('LOGIN', {
+        type: 'admin',
+        data: 'Hallo Semua',
+      });
+    }
   };
   return (
     <>
@@ -19,14 +28,14 @@ export default function Login() {
                 name='nrp'
                 className=' h-10 mx-3 my-1 w-full z-10 bg-gray-200 !text-black'
                 placeholder='NRP'
-                {...register('email', { required: true, maxLength: 20 })}
+                {...register('nrp', { required: true, maxLength: 20 })}
               ></input>
             </div>
             <div className='bg-gray-200 md:w-[420px] w-[320px] px-3  mt-5 rounded-3xl flex items-center z-0 hover:text-green-500'>
               <RiLockPasswordFill size={24} className='ml-4 ' />
               <input
-                type='email'
-                name='email,'
+                type='password'
+                name='password,'
                 className=' h-10 mx-3 my-1  w-full z-10 bg-gray-200 !text-black'
                 placeholder='Password'
                 {...register('password', { required: true, maxLength: 20 })}
