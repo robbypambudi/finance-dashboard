@@ -1,0 +1,38 @@
+[
+  {
+    "kode": "12345",
+    "tanggal": "12 April 2022",
+    "jenis_transaksi": "Penjualan",
+    "nominal": "Rp. 20.000.000",
+    "sales": "Sindi",
+    "status": "Berhasil",
+    "catatan": "Transaksi Berahsil Dilakukan"
+  },
+  {
+    "kode": "12345",
+    "tanggal": "12 April 2022",
+    "jenis_transaksi": "Penjualan",
+    "nominal": "Rp. 20.000.000",
+    "sales": "Sindi",
+    "status": "Berhasil",
+    "catatan": "Transaksi Berahsil Dilakukan"
+  },
+  {
+    "kode": "12345",
+    "tanggal": "12 April 2022",
+    "jenis_transaksi": "Penjualan",
+    "nominal": "Rp. 20.000.000",
+    "sales": "Sindi",
+    "status": "Berhasil",
+    "catatan": "Transaksi Berahsil Dilakukan"
+  },
+  {
+    "kode": "12345",
+    "tanggal": "12 April 2022",
+    "jenis_transaksi": "Penjualan",
+    "nominal": "Rp. 20.000.000",
+    "sales": "Sindi",
+    "status": "Berhasil",
+    "catatan": "Transaksi Berahsil Dilakukan"
+  }
+]

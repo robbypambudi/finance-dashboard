@@ -7,6 +7,7 @@ import HutangPiutang from '../pages/Laporan/HutangPiutang';
 import JurnalUmum from '../pages/Laporan/JurnalUmum';
 import LabaRugi from '../pages/Laporan/LabaRugi';
 import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
+import LaporanTransaksi from '../pages/Laporan/Transaksi';
 import StokBarang from '../pages/Stok/Barang';
 import DashboardBarang from '../pages/Transaksi/Dashboard/Barang';
 import TranskasiBarangEdit from '../pages/Transaksi/Dashboard/Edit';
@@ -53,6 +54,15 @@ const routes = [
     element: (
       <AuthRoute>
         <HutangPiutang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/laporan/transaksi',
+    element: (
+      <AuthRoute>
+        <LaporanTransaksi />
       </AuthRoute>
     ),
     visible: true,
