@@ -112,6 +112,15 @@ const routes = [
     visible: true,
   },
   {
+    path: '/pesanan/penjualan',
+    element: (
+      <AuthRoute>
+        <PesananPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
     path: '/pengiriman/barang',
     element: (
       <AuthRoute>
