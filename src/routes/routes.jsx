@@ -9,6 +9,12 @@ import LabaRugi from '../pages/Laporan/LabaRugi';
 import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
 import LaporanTransaksi from '../pages/Laporan/Transaksi';
 import StokBarang from '../pages/Stok/Barang';
+import FakturPembelian from '../pages/Transaksi/Barang/FakturPembelian';
+import FakturPenjualan from '../pages/Transaksi/Barang/FakturPenjualan';
+import PenerimaanBarang from '../pages/Transaksi/Barang/PenerimaanBarang';
+import PengirimanBarang from '../pages/Transaksi/Barang/PengirimanPesanan';
+import PesananPembelian from '../pages/Transaksi/Barang/PesananPembelian';
+import PesananPenjualan from '../pages/Transaksi/Barang/PesananPenjualan';
 import DashboardBarang from '../pages/Transaksi/Dashboard/Barang';
 import TranskasiBarangEdit from '../pages/Transaksi/Dashboard/Edit';
 import TransaksiBarang from '../pages/Transaksi/TransaksiBarang';
@@ -97,10 +103,55 @@ const routes = [
     visible: true,
   },
   {
-    path: '/transaksi/pembelian',
+    path: '/pesanan/pembelian',
     element: (
       <AuthRoute>
-        <TransaksiPembelian />
+        <PesananPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pengiriman/barang',
+    element: (
+      <AuthRoute>
+        <PengirimanBarang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/penerimaan/barang',
+    element: (
+      <AuthRoute>
+        <PenerimaanBarang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/faktur/penjualan',
+    element: (
+      <AuthRoute>
+        <FakturPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/faktur/pembelian',
+    element: (
+      <AuthRoute>
+        <FakturPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pengiriman/barang',
+    element: (
+      <AuthRoute>
+        <PesananPenjualan />
       </AuthRoute>
     ),
     visible: true,

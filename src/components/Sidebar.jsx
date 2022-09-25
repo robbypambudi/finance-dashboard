@@ -47,15 +47,62 @@ const navigation = [
         name: 'Dashboard Barang ',
         href: '/transaksi/barang',
         icon: GrTransaction,
+        dropdown: false,
       },
       {
         name: 'Transaksi Penjualan ',
         href: '/transaksi/penjualan',
+        dropdown: true,
+        dropdownList: [
+          {
+            name: 'Pesanan Penjualan',
+            href: '/pesanan/penjualan',
+            dropdown: false,
+          },
+          {
+            name: 'Pengiriman Pesanan',
+            href: '/pengiriman/barang',
+            dropdown: false,
+          },
+          {
+            name: 'Faktur Penjualan',
+            href: '/faktur/penjualan',
+            dropdown: false,
+          },
+          {
+            name: 'Pembayaran',
+            href: '/pesanan/pembelian',
+            dropdown: false,
+          },
+        ],
         icon: GrTransaction,
       },
       {
         name: 'Transaksi Pembelian',
         href: '/transaksi/pembelian',
+        dropdown: true,
+        dropdownList: [
+          {
+            name: 'Pesanan Pembelian',
+            href: '/pesanan/pembelian',
+            dropdown: false,
+          },
+          {
+            name: 'Peneriamaan Barang',
+            href: '/penerimaan/barang',
+            dropdown: false,
+          },
+          {
+            name: 'Faktur Pembelian',
+            href: '/faktur/pembelian',
+            dropdown: false,
+          },
+          {
+            name: 'Pembayaran',
+            href: '/pesanan/pembelian',
+            dropdown: false,
+          },
+        ],
         icon: GrTransaction,
       },
     ],
@@ -73,30 +120,35 @@ const navigation = [
         href: '/laporan/transaksi',
         icon: GrTransaction,
         current: false,
+        dropdown: false,
       },
       {
         name: 'Laporan Laba Rugi',
         href: '/laporan/laba_rugi',
         icon: GrTransaction,
         current: false,
+        dropdown: false,
       },
       {
         name: 'Laporan Hutang Piutang',
         href: '/laporan/hutang_piutang',
         icon: GrTransaction,
         current: false,
+        dropdown: false,
       },
       {
         name: 'Laporan Neraca Saldo',
         href: '/laporan/neraca_saldo',
         icon: GrTransaction,
         current: false,
+        dropdown: false,
       },
       {
         name: 'Laporan Jurnal Umum',
         href: '/laporan/jurnal_umum',
         icon: GrTransaction,
         current: false,
+        dropdown: false,
       },
     ],
   },
@@ -227,8 +279,8 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
               <div className='px-2 space-y-1 flex flex-col'>
                 {/*
                  */}
-                {navigation.map((item, index) => {
-                  if (item.dropdown) {
+                {navigation.map((items, index) => {
+                  if (items.dropdown) {
                     return (
                       <>
                         <Menu
@@ -240,8 +292,8 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                               'flex justify-start  rounded-md p-3 w-full gap-x-3 hover:bg-white text-white hover:text-black'
                             }
                           >
-                            <item.icon size={24} key={item.name} />
-                            {item.name}
+                            <items.icon size={24} key={items.name} />
+                            {items.name}
                           </Menu.Button>
                           <Transition
                             enter='transition duration-100 ease-out'
@@ -252,16 +304,60 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                             leaveTo='transform scale-95 opacity-0'
                           >
                             <Menu.Items className='flex flex-col p-3 gap-y-2'>
-                              {item.dropdownList.map((item, index) => (
-                                <Menu.Item>
-                                  <Link
-                                    to={item.href}
-                                    className='bg-white px-2 py-1 rounded-md'
-                                  >
-                                    {item.name}
-                                  </Link>
-                                </Menu.Item>
-                              ))}
+                              {items.dropdownList.map((item, index) => {
+                                if (!item.dropdown) {
+                                  return (
+                                    <Menu.Item>
+                                      <Link
+                                        to={item.href}
+                                        className='bg-white px-2 py-1 rounded-md'
+                                      >
+                                        {item.name}
+                                      </Link>
+                                    </Menu.Item>
+                                  );
+                                } else {
+                                  return (
+                                    <Menu
+                                      as='div'
+                                      className='  flex items-start gap-x-3 flex-col '
+                                    >
+                                      <Menu.Button
+                                        className={
+                                          'flex justify-start  rounded-md px-2 py-1 w-full gap-x-3 hover:bg-white text-white hover:text-black'
+                                        }
+                                      >
+                                        {item.name}
+                                      </Menu.Button>
+                                      <>
+                                        <Transition
+                                          enter='transition duration-100 ease-out'
+                                          enterFrom='transform scale-95 opacity-0'
+                                          enterTo='transform scale-100 opacity-100'
+                                          leave='transition duration-75 ease-out'
+                                          leaveFrom='transform scale-100 opacity-100'
+                                          leaveTo='transform scale-95 opacity-0'
+                                        >
+                                          <Menu.Items className='flex flex-col p-3 gap-y-2'>
+                                            {item.dropdownList.map(
+                                              (it, index) => (
+                                                <Menu.Item>
+                                                  <Link
+                                                    to={it.href}
+                                                    className='bg-white px-2 py-1 rounded-md'
+                                                  >
+                                                    {it.name}
+                                                  </Link>
+                                                </Menu.Item>
+                                              ),
+                                            )}
+                                          </Menu.Items>
+                                        </Transition>
+                                      </>
+                                    </Menu>
+                                  );
+                                }
+                              })}
                             </Menu.Items>
                           </Transition>
                         </Menu>
@@ -269,16 +365,16 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                     );
                   } else {
                     return (
-                      <Link key={index} to={item.href}>
+                      <Link key={index} to={items.href}>
                         <div
                           className={`p-3 rounded-md flex items-center gap-x-3 ${
-                            nav === item.name
+                            nav === items.name
                               ? 'bg-white text-dashboard'
                               : 'text-white'
                           }`}
                         >
-                          <item.icon size={24} key={item.name} />
-                          {item.name}
+                          <items.icon size={24} key={items.name} />
+                          {items.name}
                         </div>
                       </Link>
                     );
