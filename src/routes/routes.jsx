@@ -11,7 +11,7 @@ import LaporanTransaksi from '../pages/Laporan/Transaksi';
 import StokBarang from '../pages/Stok/Barang';
 import FakturPembelian from '../pages/Transaksi/Barang/FakturPembelian';
 import FakturPenjualan from '../pages/Transaksi/Barang/FakturPenjualan';
-import PenerimaanBarang from '../pages/Transaksi/Barang/PenerimaanBarang';
+import SuratJalan from '../pages/Transaksi/Barang/SuratJalan';
 import PengirimanBarang from '../pages/Transaksi/Barang/PengirimanPesanan';
 import PesananPembelian from '../pages/Transaksi/Barang/PesananPembelian';
 import PesananPenjualan from '../pages/Transaksi/Barang/PesananPenjualan';
@@ -23,6 +23,7 @@ import TransaksiPenjualan from '../pages/Transaksi/TransaksiPenjualan';
 import TransaksiUmum from '../pages/Transaksi/Umum/TransaksiUmum';
 import AuthRoute from './AuthRoute';
 import GuestRoute from './GuestRoute';
+import DetailSuratJalan from '../pages/Transaksi/Barang/DetailSuratJalan';
 
 const routes = [
   {
@@ -130,10 +131,19 @@ const routes = [
     visible: true,
   },
   {
-    path: '/penerimaan/barang',
+    path: '/surat/jalan',
     element: (
       <AuthRoute>
-        <PenerimaanBarang />
+        <SuratJalan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/surat/jalan/:id',
+    element: (
+      <AuthRoute>
+        <DetailSuratJalan />
       </AuthRoute>
     ),
     visible: true,

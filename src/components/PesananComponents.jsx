@@ -2,6 +2,7 @@ export default function PesananComponents() {
   return (
     <>
       <div className=''>
+        <h2 className='text-start text-xl font-bold mt-5'>Informasi Pembeli</h2>
         <div className='flex flex-col px-2 py-1'>
           <label>Tanggal</label>
           <input
@@ -11,24 +12,24 @@ export default function PesananComponents() {
           ></input>
         </div>
         <div className='flex flex-col px-2 py-1'>
-          <label>Kontak</label>
+          <label>Vendor</label>
           <input
             className='px-2 py-1 h-10 rounded'
-            placeholder='Kontak'
+            placeholder='Vendor'
           ></input>
         </div>
         <div className='flex flex-col px-2 py-1'>
           <label>Alamat</label>
-          <input
-            className='px-2 py-1 h-10 rounded'
+          <textarea
+            className='px-2 py-1 rounded'
             placeholder='Alamat'
-          ></input>
+          ></textarea>
         </div>
         <div className='flex flex-col px-2 py-1'>
           <label>Telepon</label>
           <input
             className='px-2 py-1 h-10 rounded'
-            placeholder='Telephon'
+            placeholder='Telepon'
           ></input>
         </div>
         <div className='flex flex-col px-2 py-1'>

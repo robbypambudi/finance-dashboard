@@ -18,7 +18,7 @@ const navigation = [
   },
 
   {
-    name: 'Transaksi Umum',
+    name: 'Kas dan Bank',
     href: '/transaksi',
     icon: AiOutlineTransaction,
     current: false,
@@ -88,18 +88,23 @@ const navigation = [
             dropdown: false,
           },
           {
-            name: 'Peneriamaan Barang',
-            href: '/penerimaan/barang',
-            dropdown: false,
-          },
-          {
-            name: 'Faktur Pembelian',
-            href: '/faktur/pembelian',
+            name: 'Surat Jalan',
+            href: '/surat/jalan',
             dropdown: false,
           },
           {
             name: 'Pembayaran',
             href: '/pesanan/pembelian',
+            dropdown: false,
+          },
+          {
+            name: 'History Pembelian',
+            href: '/history/pembelian',
+            dropdown: false,
+          },
+          {
+            name: 'Faktur Pembelian',
+            href: '/faktur/pembelian',
             dropdown: false,
           },
         ],

@@ -8,6 +8,7 @@ function App() {
     <>
       <Toaster
         reverseOrder={false}
+        position='top-center'
         toastOptions={{
           style: {
             borderRadius: '8px',
