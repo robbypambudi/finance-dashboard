@@ -329,6 +329,33 @@ const routes = [
     ),
     visible: true,
   },
+  {
+    path: '/pengeluaran/gudang',
+    element: (
+      <AuthRoute>
+        <TransaksiUmum />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pengeluaran/kantor',
+    element: (
+      <AuthRoute>
+        <TransaksiUmum />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pengeluaran/cs',
+    element: (
+      <AuthRoute>
+        <TransaksiUmum />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
 ];
 
 export { routes };

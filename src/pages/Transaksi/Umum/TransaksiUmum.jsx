@@ -137,10 +137,10 @@ export default function TransaksiUmum() {
                     type='text'
                   />
                 </div>
-                <PajakInput />
+                {/* <PajakInput /> */}
 
                 <div className='flex flex-col'>
-                  <label className='my-2'>Kontak</label>
+                  <label className='my-2'>Kontak Staff</label>
                   <input
                     className='bg-gray-100 px-4 py-2  rounded-md border border-gray-400 shadow'
                     placeholder='Kontak'
@@ -170,7 +170,6 @@ export default function TransaksiUmum() {
                 <h2 className='font-secondary border-b border-b-gray-400 text-2xl mb-6'>
                   History Transaksi
                 </h2>
-                <Table data={data} columns={columns} />
               </div>
             </div>
           </div>

@@ -1,44 +1,52 @@
 export const Jenis_Transaksi = [
   {
-    name: 'Pengeluaran',
-    value: 'pengeluaran',
+    name: 'Pengeluaran  Gudang',
+    value: 'pengeluaran_gudang',
   },
   {
-    name: 'General',
-    value: 'general',
+    name: 'Pengeluaran Kantor',
+    value: 'pengeluaran_kantor',
   },
   {
-    name: 'Pemasukan',
-    value: 'pemasukan',
+    name: 'Pengeluaran Cleaning Serive',
+    value: 'pengeluaran_cs',
   },
-  {
-    name: 'Hutang',
-    value: 'hutang',
-  },
-  {
-    name: 'Piutang',
-    value: 'piutang',
-  },
-  {
-    name: 'Tanam Modal',
-    value: 'tanam-modal',
-  },
-  {
-    name: 'Tarik Modal',
-    value: 'tarik-modal',
-  },
-  {
-    name: 'Transfer Uang',
-    value: 'transfer-uang',
-  },
-  {
-    name: 'Pemasukan Sebagai Piutang',
-    value: 'pemasukan-sebagai-piutang',
-  },
-  {
-    name: 'Pemasukan Sebagai Hutang',
-    value: 'pemasukan-sebagai-hutang',
-  },
+  // {
+  //   name: 'General',
+  //   value: 'general',
+  // },
+  // {
+  //   name: 'Pemasukan',
+  //   value: 'pemasukan',
+  // },
+  // {
+  //   name: 'Hutang',
+  //   value: 'hutang',
+  // },
+  // {
+  //   name: 'Piutang',
+  //   value: 'piutang',
+  // },
+  // {
+  //   name: 'Tanam Modal',
+  //   value: 'tanam-modal',
+  // },
+  // {
+  //   name: 'Tarik Modal',
+  //   value: 'tarik-modal',
+  // },
+  // {
+  //   name: 'Transfer Uang',
+  //   value: 'transfer-uang',
+  // },
+  // {
+  //   name: 'Pemasukan Sebagai Piutang',
+  //   value: 'pemasukan-sebagai-piutang',
+  // },
+  // {
+  //   name: 'Pemasukan Sebagai Hutang',
+  //   value: 'pemasukan-sebagai-hutang',
+  // },
 ];
 
 export const Jenis_Debit = [

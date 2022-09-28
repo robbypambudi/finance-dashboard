@@ -18,7 +18,18 @@ export default function PengirimanPesananDetail() {
   };
   const DATAITEMS = [
     {
-      no_transaksi: '123456',
+      kode_barang: '123456',
+      nama: 'Biji Plastik',
+      satuan: 'Pax',
+      harga: '10.000.000',
+      discount: '1%',
+      total: '100.000',
+      catatan: 'Anak Perusahaan dari PT Waskita',
+    },
+  ];
+  const DATAITEMBARANGCHECK = [
+    {
+      kode_barang: '123456',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: false,
@@ -26,46 +37,115 @@ export default function PengirimanPesananDetail() {
       catatan: 'Anak Perusahaan dari PT Waskita',
     },
   ];
+  const ListPengirimanSebelumnuya = [
+    columnsHelper.accessor('kode_barang', {
+      cell: (info) => info.getValue(),
+      header: <span>Kode Barang</span>,
+    }),
+    columnsHelper.accessor('no_suratjalan', {
+      cell: (info) => info.getValue(),
+      header: <span>Nomor Surat Jalan</span>,
+    }),
+    columnsHelper.accessor('tanggal_kirim', {
+      cell: (info) => info.getValue(),
+      header: <span>Tanggal Kirim</span>,
+    }),
+    columnsHelper.accessor('nama', {
+      cell: (info) => info.getValue(),
+      header: <span>Nama</span>,
+    }),
+    columnsHelper.accessor('satuan', {
+      cell: (info) => info.getValue(),
+      header: <span>Satuan</span>,
+    }),
+
+    columnsHelper.accessor('awal', {
+      cell: (info) => info.getValue(),
+      header: <span>Kurang</span>,
+    }),
+    columnsHelper.accessor('dikirim', {
+      cell: (info) => info.getValue(),
+      header: <span>Dikirim</span>,
+    }),
+    columnsHelper.accessor('sisa', {
+      cell: (info) => info.getValue(),
+      header: <span>Sisa </span>,
+    }),
+  ];
+  const DATAITEMSSEBELUMNYA = [
+    {
+      kode_barang: '123456',
+      no_suratjalan: 'SJ-12341236',
+      tanggal_kirim: '12 April 2022',
+      nama: 'Biji Plastik',
+      satuan: 'Pax',
+      harga: '10.000.000',
+      awal: '80',
+      dikirim: '50',
+      sisa: '30',
+      catatan: 'Anak Perusahaan dari PT Waskita',
+    },
+    {
+      kode_barang: '123456',
+      no_suratjalan: 'SJ-12341234',
+      tanggal_kirim: '12 April 2022',
+      nama: 'Biji Plastik',
+      satuan: 'Pax',
+      harga: '10.000.000',
+      awal: '100',
+      dikirim: '20',
+      sisa: '80',
+      catatan: 'Anak Perusahaan dari PT Waskita',
+    },
+  ];
+  const listBarangCheck = [
+    columnsHelper.accessor('kode_barang', {
+      cell: (info) => info.getValue(),
+      header: <span>Kode Barang</span>,
+    }),
+    columnsHelper.accessor('nama', {
+      cell: (info) => info.getValue(),
+      header: <span>Nama</span>,
+    }),
+    columnsHelper.accessor('satuan', {
+      cell: (info) => info.getValue(),
+      header: <span>Satuan</span>,
+    }),
+    columnsHelper.accessor('kode_barang', {
+      cell: (info) => (
+        <div className='w-[400px]'>
+          <input type='number' className='px-4 py-2'></input>
+        </div>
+      ),
+      header: <span>Jumlah Barang Diterima</span>,
+    }),
+  ];
 
   const ListPenerimaanBarang = [
-    columnsHelper.accessor('no_transaksi', {
+    columnsHelper.accessor('kode_barang', {
       cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
+      header: <span>Kode Barang</span>,
     }),
-    columnsHelper.accessor('tanggal', {
+    columnsHelper.accessor('nama', {
       cell: (info) => info.getValue(),
-      header: <span>Tanggal Pemesanan</span>,
+      header: <span>Nama</span>,
     }),
-    columnsHelper.accessor('vendor', {
+    columnsHelper.accessor('satuan', {
       cell: (info) => info.getValue(),
-      header: <span>Pembeli</span>,
-    }),
-    columnsHelper.accessor('nominal', {
-      cell: (info) => info.getValue(),
-      header: <span>Nominal</span>,
+      header: <span>Satuan</span>,
     }),
 
-    columnsHelper.accessor('catatan', {
+    columnsHelper.accessor('harga', {
       cell: (info) => info.getValue(),
-      header: <span>Catatan</span>,
+      header: <span>Harga</span>,
     }),
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => {
-        const href = info.getValue();
-        return (
-          <>
-            <div className='flex flex-col gap-y-2'>
-              <button
-                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
-                onClick={() => navigate(`/pengiriman/pesanan/${href}`)}
-              >
-                Buat
-              </button>
-            </div>
-          </>
-        );
-      },
-      header: <span>Aksi</span>,
+    columnsHelper.accessor('discount', {
+      cell: (info) => info.getValue(),
+      header: <span>Discount </span>,
+    }),
+    columnsHelper.accessor('total', {
+      cell: (info) => info.getValue(),
+      header: <span>Total</span>,
     }),
   ];
   const HistoryPenerimaanBarang = [
@@ -161,7 +241,7 @@ export default function PengirimanPesananDetail() {
       <DashboardShellAdmin>
         <div className='p-10 flex items-center justify-center flex-col'>
           <h2 className='text-center text-3xl font-bold my-3'>
-            Pengisian Pembayaran
+            Pengisian Surat Jalan
           </h2>
 
           <div>
@@ -239,6 +319,10 @@ export default function PengirimanPesananDetail() {
               ></input>
             </div>
 
+            <div className='mt-5 p-2'>
+              <Table data={DATAITEMS} columns={listBarangCheck} />
+            </div>
+
             <div className='flex items-center justify-center gap-x-5 mt-4'>
               <button
                 className='px-4 py-2 bg-green-500 text-white rounded-lg'
@@ -259,6 +343,15 @@ export default function PengirimanPesananDetail() {
                 Selanjutnya
               </button>
             </div>
+          </div>
+          <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
+            <p className='text-center font-bold text-2xl'>
+              Detail Pengiriman Barang Sebelumnya
+            </p>
+            <Table
+              data={DATAITEMSSEBELUMNYA}
+              columns={ListPengirimanSebelumnuya}
+            />
           </div>
 
           <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>

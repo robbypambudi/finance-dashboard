@@ -10,6 +10,28 @@ export default function DetailSuratJalan() {
   const navigate = useNavigate();
   const { id } = useParams();
   const columnsHelper = createColumnHelper();
+  const listBarangCheck = [
+    columnsHelper.accessor('kode_barang', {
+      cell: (info) => info.getValue(),
+      header: <span>Kode Barang</span>,
+    }),
+    columnsHelper.accessor('nama', {
+      cell: (info) => info.getValue(),
+      header: <span>Nama</span>,
+    }),
+    columnsHelper.accessor('satuan', {
+      cell: (info) => info.getValue(),
+      header: <span>Satuan</span>,
+    }),
+    columnsHelper.accessor('kode_barang', {
+      cell: (info) => (
+        <div className='w-[400px]'>
+          <input type='number' className='px-4 py-2'></input>
+        </div>
+      ),
+      header: <span>Jumlah Barang Diterima</span>,
+    }),
+  ];
   const ListPenerimaanBarang = [
     columnsHelper.accessor('kode_barang', {
       cell: (info) => info.getValue(),
@@ -37,6 +59,7 @@ export default function DetailSuratJalan() {
       header: <span>Total</span>,
     }),
   ];
+
   const DATAITEMS = [
     {
       kode_barang: '123456',
@@ -45,6 +68,67 @@ export default function DetailSuratJalan() {
       harga: '10.000.000',
       discount: '1%',
       total: '100.000',
+      catatan: 'Anak Perusahaan dari PT Waskita',
+    },
+  ];
+  const ListPengirimanSebelumnuya = [
+    columnsHelper.accessor('kode_barang', {
+      cell: (info) => info.getValue(),
+      header: <span>Kode Barang</span>,
+    }),
+    columnsHelper.accessor('no_suratjalan', {
+      cell: (info) => info.getValue(),
+      header: <span>Nomor Surat Jalan</span>,
+    }),
+    columnsHelper.accessor('tanggal_kirim', {
+      cell: (info) => info.getValue(),
+      header: <span>Tanggal Kirim</span>,
+    }),
+    columnsHelper.accessor('nama', {
+      cell: (info) => info.getValue(),
+      header: <span>Nama</span>,
+    }),
+    columnsHelper.accessor('satuan', {
+      cell: (info) => info.getValue(),
+      header: <span>Satuan</span>,
+    }),
+
+    columnsHelper.accessor('awal', {
+      cell: (info) => info.getValue(),
+      header: <span>Kurang</span>,
+    }),
+    columnsHelper.accessor('dikirim', {
+      cell: (info) => info.getValue(),
+      header: <span>Dikirim</span>,
+    }),
+    columnsHelper.accessor('sisa', {
+      cell: (info) => info.getValue(),
+      header: <span>Sisa </span>,
+    }),
+  ];
+  const DATAITEMSSEBELUMNYA = [
+    {
+      kode_barang: '123456',
+      no_suratjalan: 'SJ-12341236',
+      tanggal_kirim: '12 April 2022',
+      nama: 'Biji Plastik',
+      satuan: 'Pax',
+      harga: '10.000.000',
+      awal: '80',
+      dikirim: '50',
+      sisa: '30',
+      catatan: 'Anak Perusahaan dari PT Waskita',
+    },
+    {
+      kode_barang: '123456',
+      no_suratjalan: 'SJ-12341234',
+      tanggal_kirim: '12 April 2022',
+      nama: 'Biji Plastik',
+      satuan: 'Pax',
+      harga: '10.000.000',
+      awal: '100',
+      dikirim: '20',
+      sisa: '80',
       catatan: 'Anak Perusahaan dari PT Waskita',
     },
   ];
@@ -132,6 +216,16 @@ export default function DetailSuratJalan() {
                   type={'date'}
                 ></input>
               </div>
+              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
+                <label>Bukti Surat Jalan</label>
+                <input
+                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
+                  type={'file'}
+                ></input>
+              </div>
+              <div className='mt-5 p-2'>
+                <Table data={DATAITEMS} columns={listBarangCheck} />
+              </div>
 
               <div className='flex items-center justify-center gap-x-5 mt-4'>
                 <button
@@ -157,6 +251,17 @@ export default function DetailSuratJalan() {
 
             {/* Detail Item Barang */}
             <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
+              <p className='text-center font-bold text-2xl'>
+                Detail Pengiriman Barang Sebelumnya
+              </p>
+              <Table
+                data={DATAITEMSSEBELUMNYA}
+                columns={ListPengirimanSebelumnuya}
+              />
+            </div>
+            {/* Detail Item Barang */}
+            <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
+              <p className='text-center font-bold text-2xl'>Detail Barang</p>
               <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
             </div>
           </div>

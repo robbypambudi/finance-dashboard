@@ -29,6 +29,8 @@ export default function PembayaranPembelian() {
       tanggal_sampai: '20 April 2022',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
+      belum_bayar: 'Rp. 9.000.000',
+      sudah_bayar: 'Rp. 1.000.000',
       status: false,
       tanggal: '9 April 2022',
       catatan: 'Pembayaran Baru 50% dari nilai kontrak',
@@ -132,6 +134,14 @@ export default function PembayaranPembelian() {
     columnsHelper.accessor('nominal', {
       cell: (info) => info.getValue(),
       header: <span>Nominal</span>,
+    }),
+    columnsHelper.accessor('sudah_bayar', {
+      cell: (info) => info.getValue(),
+      header: <span>Sudah Bayar</span>,
+    }),
+    columnsHelper.accessor('belum_bayar', {
+      cell: (info) => info.getValue(),
+      header: <span>Belum Bayar</span>,
     }),
 
     columnsHelper.accessor('catatan', {

@@ -25,28 +25,18 @@ const navigation = [
     dropdown: true,
     dropdownList: [
       {
-        name: 'Iuran  ',
-        href: '/transaksi/iuran',
+        name: 'Pengeluaran Gudang',
+        href: '/pengeluaran/gudang',
         icon: GrTransaction,
       },
       {
-        name: 'ATK ',
-        href: '/transaksi/atk',
+        name: 'Pengeluaran Kantor',
+        href: '/pengeluaran/kantor',
         icon: GrTransaction,
       },
       {
-        name: 'Mesin',
-        href: '/transaksi/atk',
-        icon: GrTransaction,
-      },
-      {
-        name: 'Gudang',
-        href: '/transaksi/atk',
-        icon: GrTransaction,
-      },
-      {
-        name: 'Kantor',
-        href: '/transaksi/atk',
+        name: 'Pengeluaran Cleaning Servis',
+        href: '/pengeluaran/cs',
         icon: GrTransaction,
       },
     ],
