@@ -146,13 +146,13 @@ export default function PembayaranPenjualan() {
             <div className='flex flex-col gap-y-2'>
               <button
                 className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
-                onClick={() => navigate(`/pembayaran/pembelian/${href}`)}
+                onClick={() => navigate(`/pembayaran/penjualan/${href}`)}
               >
                 Selesaikan Pembayaran
               </button>
               <button
                 className='bg-green-500 text-white font-bold px-2 py-1 rounded '
-                onClick={() => navigate(`/pembayaran/pembelian/${href}`)}
+                onClick={() => navigate(`/pembayaran/penjualan/${href}`)}
               >
                 Surat Jalan
               </button>

@@ -117,7 +117,7 @@ export default function PengirimanPesananDetail() {
           <input type='number' className='px-4 py-2'></input>
         </div>
       ),
-      header: <span>Jumlah Barang Diterima</span>,
+      header: <span>Jumlah Barang Dikirim</span>,
     }),
   ];
 
@@ -284,6 +284,13 @@ export default function PengirimanPesananDetail() {
               ></input>
             </div>
             <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
+              <label>No PO</label>
+              <input
+                className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
+                placeholder='Jawaban Anda'
+              ></input>
+            </div>
+            <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
               <label>Jenis Kendaraan</label>
               <input
                 className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
@@ -346,7 +353,7 @@ export default function PengirimanPesananDetail() {
           </div>
           <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
             <p className='text-center font-bold text-2xl'>
-              Detail Pengiriman Barang Sebelumnya
+              Detail Pengiriman Barang
             </p>
             <Table
               data={DATAITEMSSEBELUMNYA}

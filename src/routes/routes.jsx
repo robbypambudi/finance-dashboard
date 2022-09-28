@@ -31,6 +31,7 @@ import FakturPembelianDetail from '../pages/Transaksi/Barang/FakturPembelianDeta
 import PengirimanPesananDetail from '../pages/Transaksi/Barang/PengirimanPesananDetail';
 import PembayaranPenjualan from '../pages/Transaksi/Barang/PembayaranPenjualan';
 import FakturPenjualanDetail from '../pages/Transaksi/Barang/FakturPenjualanDetail';
+import PembayaranPenjualanDetail from '../pages/Transaksi/Barang/PembayaranPenjualanDetail';
 
 const routes = [
   {
@@ -142,6 +143,15 @@ const routes = [
     element: (
       <AuthRoute>
         <PembayaranPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pembayaran/penjualan/:id',
+    element: (
+      <AuthRoute>
+        <PembayaranPenjualanDetail />
       </AuthRoute>
     ),
     visible: true,

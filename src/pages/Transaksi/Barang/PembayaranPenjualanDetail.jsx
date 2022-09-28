@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Table from '../../../components/Table';
 import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
 
-export default function PembayaranPembelianDetail() {
+export default function PembayaranPenjualanDetail() {
   const [isDownload, setIsDownload] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();

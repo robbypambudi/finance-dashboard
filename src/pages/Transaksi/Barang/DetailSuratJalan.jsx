@@ -252,7 +252,7 @@ export default function DetailSuratJalan() {
             {/* Detail Item Barang */}
             <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
               <p className='text-center font-bold text-2xl'>
-                Detail Pengiriman Barang Sebelumnya
+                Detail Pengiriman Barang
               </p>
               <Table
                 data={DATAITEMSSEBELUMNYA}
