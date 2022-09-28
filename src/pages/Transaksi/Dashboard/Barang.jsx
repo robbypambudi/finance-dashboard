@@ -1,52 +1,78 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { FaEye } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Table from '../../../components/Table';
 import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
 import DATA_HISTORY_BARANG from '../../../mock/DATA_HISTORY_BARANG.json';
 export default function DashboardBarang() {
+  const navigate = useNavigate();
   const columnHelper = createColumnHelper();
   const LIST_HISTORY_BARANG = [
     columnHelper.accessor('id_transaksi', {
-      cell: (info) => info.getValue(),
-      header: <span>Kode</span>,
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>No Transaksi</span>,
     }),
-    columnHelper.accessor('tanggal', {
+    columnHelper.accessor('no_po', {
       cell: (info) => info.getValue(),
-      header: <span>Tanggal</span>,
+      header: <span>Kode PO</span>,
+    }),
+    columnHelper.accessor('no_suratjalan', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>No Surat Jalan</span>,
+    }),
+    columnHelper.accessor('tanggal_pembayaran', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Pembayaran</span>,
+    }),
+    columnHelper.accessor('tanggal_pengiriman', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Pengiriman</span>,
+    }),
+    columnHelper.accessor('tanggal_sampai', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Sampai</span>,
     }),
     columnHelper.accessor('jenis', {
-      cell: (info) => info.getValue(),
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Jenis</span>,
     }),
-    columnHelper.accessor('nama', {
-      cell: (info) => info.getValue(),
-      header: <span>Nama</span>,
-    }),
+
     columnHelper.accessor('nominal', {
-      cell: (info) => info.getValue(),
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Nominal</span>,
     }),
     columnHelper.accessor('status', {
-      cell: (info) => info.getValue(),
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Status</span>,
     }),
-    columnHelper.accessor('sales', {
-      cell: (info) => info.getValue(),
-      header: <span>Sales</span>,
+    columnHelper.accessor('supplier', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Supplier</span>,
     }),
     columnHelper.accessor('catatan', {
-      cell: (info) => info.getValue(),
+      cell: (info) => <p className='w-[300px]'>{info.getValue()}</p>,
       header: <span>Catatan</span>,
     }),
     columnHelper.accessor('id_transaksi', {
       cell: (info) => {
+        const href = 1234;
         return (
-          <div className='flex flex-col gap-y-2 w-10 justify-center items-center'>
-            <Link>
-              <FaEye />
-            </Link>
-          </div>
+          <>
+            <div className='flex flex-col gap-y-2'>
+              <button
+                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
+                onClick={() => navigate(`/surat/jalan/${href}`)}
+              >
+                Surat Jalan
+              </button>
+              <button
+                className='bg-green-500 text-white font-bold px-2 py-1 rounded '
+                onClick={() => navigate(`/pembayaran/pembelian/${href}`)}
+              >
+                Pembayaran
+              </button>
+            </div>
+          </>
         );
       },
       header: <span>Aksi</span>,
@@ -100,9 +126,9 @@ export default function DashboardBarang() {
             </div>
           </div>
 
-          <div className='bg-white p-3 mt-4 rounded border border-gray-400'>
+          <div className='bg-white p-3 mt-4 rounded border border-gray-400 overflow-auto '>
             <h2 className='text-center text-2xl font-bold'>
-              List Transaksi Barang
+              List Transaksi P.O / S.O
             </h2>
             <Table columns={LIST_HISTORY_BARANG} data={DATA_HISTORY_BARANG} />
           </div>

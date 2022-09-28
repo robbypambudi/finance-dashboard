@@ -1,36 +1,117 @@
 import { createColumnHelper } from '@tanstack/react-table';
-import { initOnLoad } from 'apexcharts';
-import { info } from 'autoprefixer';
+import { useNavigate } from 'react-router-dom';
 import Table from '../../../components/Table';
 import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
 
-export default function PengirimanBarang() {
+export default function PengirimanPesanan() {
   const columnsHelper = createColumnHelper();
+  const navigate = useNavigate();
+
+  const DATAITEMS = [
+    {
+      no_transaksi: '123456',
+      vendor: 'PT Jaya Bakti Indonesia',
+      nominal: 'Rp. 12.000.000',
+      status: false,
+      tanggal: '9 April 2022',
+      catatan: 'Anak Perusahaan dari PT Waskita',
+    },
+  ];
 
   const ListPenerimaanBarang = [
-    columnsHelper.accessor('kode-barang', {
+    columnsHelper.accessor('no_transaksi', {
       cell: (info) => info.getValue(),
-      header: <span>Kode Barang</span>,
+      header: <span>No_Transaksi</span>,
     }),
-    columnsHelper.accessor('nama', {
+    columnsHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
-      header: <span>Nama Barang</span>,
+      header: <span>Tanggal Pemesanan</span>,
     }),
-    columnsHelper.accessor('satuan', {
+    columnsHelper.accessor('vendor', {
       cell: (info) => info.getValue(),
-      header: <span>Satuan</span>,
+      header: <span>Pembeli</span>,
     }),
-    columnsHelper.accessor('jumlah', {
+    columnsHelper.accessor('nominal', {
       cell: (info) => info.getValue(),
-      header: <span>Jumlah</span>,
+      header: <span>Nominal</span>,
     }),
-    columnsHelper.accessor('harga', {
+
+    columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
-      header: <span>Harga/Rp</span>,
+      header: <span>Catatan</span>,
     }),
-    columnsHelper.accessor('total', {
-      cell: (info) => <p>{info.getValue()}</p>,
-      header: <span>Total</span>,
+    columnsHelper.accessor('no_transaksi', {
+      cell: (info) => {
+        const href = info.getValue();
+        return (
+          <>
+            <div className='flex flex-col gap-y-2'>
+              <button
+                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
+                onClick={() => navigate(`/pengiriman/barang/${href}`)}
+              >
+                Buat
+              </button>
+            </div>
+          </>
+        );
+      },
+      header: <span>Aksi</span>,
+    }),
+  ];
+  const HistoryPenerimaanBarang = [
+    columnsHelper.accessor('no_transaksi', {
+      cell: (info) => info.getValue(),
+      header: <span>No_Transaksi</span>,
+    }),
+    columnsHelper.accessor('tanggal_pengiriman', {
+      cell: (info) => info.getValue(),
+      header: <span>Tanggal Pengiriman</span>,
+    }),
+    columnsHelper.accessor('tanggal_sampai', {
+      cell: (info) => info.getValue(),
+      header: <span>Tanggal Sampai</span>,
+    }),
+    columnsHelper.accessor('vendor', {
+      cell: (info) => info.getValue(),
+      header: <span>Pembeli</span>,
+    }),
+    columnsHelper.accessor('nominal', {
+      cell: (info) => info.getValue(),
+      header: <span>Nominal</span>,
+    }),
+
+    columnsHelper.accessor('catatan', {
+      cell: (info) => info.getValue(),
+      header: <span>Catatan</span>,
+    }),
+    columnsHelper.accessor('status', {
+      cell: (info) => info.getValue(),
+      header: <span>Status Pengiriman</span>,
+    }),
+    columnsHelper.accessor('no_transaksi', {
+      cell: (info) => {
+        const href = info.getValue();
+        return (
+          <>
+            <div className='flex flex-col gap-y-2'>
+              <button
+                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
+                onClick={() => navigate(`/pengiriman/barang/${href}`)}
+              >
+                Surat Jalan
+              </button>
+              <button
+                className='bg-green-500 text-white font-bold px-2 py-1 rounded '
+                onClick={() => navigate(`/pembayaran/barang/${href}`)}
+              >
+                Pembayaran
+              </button>
+            </div>
+          </>
+        );
+      },
+      header: <span>Aksi</span>,
     }),
   ];
 
@@ -44,85 +125,54 @@ export default function PengirimanBarang() {
       total: 2100000,
     },
   ];
+  const dataHistory = [
+    {
+      no_transaksi: '123456',
+      vendor: 'PT Jaya Bakti Indonesia',
+      nominal: 'Rp. 12.000.000',
+      status: 'Pandding Payment',
+      tanggal_pengiriman: '22 September 2022',
+      tanggal_sampai: '13 April 2022',
+      catatan: 'Anak Perusahaan dari PT ',
+    },
+  ];
+  const dataHistory2 = [
+    {
+      no_transaksi: '1234512316',
+      vendor: 'PT Jaya Bakti Indonesia',
+      nominal: 'Rp. 12.000.000',
+      status: 'Selesai',
+      tanggal_pengiriman: '22 September 2022',
+      tanggal_sampai: '13 April 2022',
+      catatan: 'Anak Perusahaan dari PT ',
+    },
+  ];
   return (
     <>
       <DashboardShellAdmin>
-        <div>
+        <div className='p-10'>
           <h2 className='text-center text-3xl font-bold my-3'>
-            Pengiriman barang
+            Pengisian Surat Jalan
           </h2>
-          <div className='p-5'>
-            <div className='w-1/2'>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>No Transaksi</label>
-                <input
-                  className='px-4 py-2 h-10 rounded'
-                  value={'122313213'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>Nama Supir/ Wa</label>
-                <input
-                  className='px-4 py-2 h-10 rounded'
-                  value={'Pak Putro /12213321 32131'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>No PO</label>
-                <input
-                  className='px-4 py-2 h-10 rounded'
-                  value={'122313213'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>Sales</label>
-                <input
-                  className='px-4 py-2 h-10 rounded'
-                  value={'Pak Robby'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>Jenis Kendaraan</label>
-                <input
-                  className='px-4 py-2 h-10 rounded'
-                  value={'Pak Robby'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>No Polisi Kendaraan</label>
-                <input
-                  className='px-4 py-2 h-10 rounded'
-                  value={'B 12312 Sia'}
-                ></input>
-              </div>
 
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>Status Pengiriman</label>
-                <select className='px-4 py-2 rounded'>
-                  <option>--- Status ---</option>
-                  <option>--- Selesai ---</option>
-                  <option>--- Panding ---</option>
-                  <option>--- On Going ---</option>
-                  <option>--- Dibatalkan ---</option>
-                </select>
-              </div>
-              <div className='flex flex-col gap-y-1 my-2'>
-                <label>Catatan</label>
-                <textarea className='px-4 py-2 rounded'></textarea>
-              </div>
-            </div>
+          <div className='bg-white p-5 rounded-lg'>
+            <p className='text-center text-lg font-bold'>
+              List Penjualan Belum Isi Surat Jalan
+            </p>
+            <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
+          </div>
 
-            {/* Rincian Barang */}
-            <div className='mt-7'>
-              <h2 className='text-center text-2xl font-primary'>
-                Rincian Barang
-              </h2>
-              <Table data={data} columns={ListPenerimaanBarang} />
-            </div>
-
-            <div className='mt-6 flex items-center justify-center rounded text-white'>
-              <button className='px-4 py-2 bg-blue-500'>Buat PO</button>
-            </div>
+          <div className='bg-yellow-500 p-5 rounded-lg mt-8'>
+            <p className='text-center text-lg font-bold'>
+              List Penjualan Dalam Pengiriman
+            </p>
+            <Table data={dataHistory} columns={HistoryPenerimaanBarang} />
+          </div>
+          <div className='bg-blue-500 p-5 rounded-lg mt-8'>
+            <p className='text-center text-lg font-bold'>
+              List Penjualan Barang Selesai Dikirm
+            </p>
+            <Table data={dataHistory2} columns={HistoryPenerimaanBarang} />
           </div>
         </div>
       </DashboardShellAdmin>

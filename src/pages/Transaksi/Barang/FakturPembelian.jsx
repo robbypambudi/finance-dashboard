@@ -1,51 +1,61 @@
 import { createColumnHelper } from '@tanstack/react-table';
-import { FaEye, FaPrint, FaRegEdit } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import Table from '../../../components/Table';
 import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
 
-export default function FakturPembelian() {
-  const DUMYDATA = [
-    {
-      'kode-transaksi': '10234',
-      tanggal: '12',
-      status: 'Selesai',
-    },
-    {
-      'kode-transaksi': '10235',
-      tanggal: '12',
-      status: 'Selesai',
-    },
-    {
-      'kode-transaksi': '10236',
-      tanggal: '12',
-      status: 'Selesai',
-    },
-  ];
-
+export default function HistoryPembelian() {
   const columnsHelper = createColumnHelper();
+  const navigate = useNavigate();
 
-  const ListFaktur = [
-    columnsHelper.accessor('kode-transaksi', {
-      cell: (info) => info.getValue(),
-      header: <span>Kode Transaksi</span>,
+  const LISTSO = [
+    columnsHelper.accessor('no_transaksi', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>No Transaksi</span>,
     }),
-    columnsHelper.accessor('tanggal', {
-      cell: (info) => info.getValue(),
-      header: <span>Tanggal</span>,
+    columnsHelper.accessor('no_suratjalan', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>No Surat Jalan</span>,
     }),
-
-    columnsHelper.accessor('status', {
-      cell: (info) => info.getValue(),
-      header: <span>Status</span>,
+    columnsHelper.accessor('no_po', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>No PO</span>,
     }),
-    columnsHelper.accessor('kode-transaksi', {
+    columnsHelper.accessor('supplier', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Supplier</span>,
+    }),
+    columnsHelper.accessor('tanggal_pembayaran', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Pembayaran</span>,
+    }),
+    columnsHelper.accessor('tanggal_pengiriman', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Pengiriman</span>,
+    }),
+    columnsHelper.accessor('tanggal_sampai', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Sampai</span>,
+    }),
+    columnsHelper.accessor('nominal', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Nominal</span>,
+    }),
+    columnsHelper.accessor('catatan', {
+      cell: (info) => <p className='w-[300px]'>{info.getValue()}</p>,
+      header: <span>Catatan</span>,
+    }),
+    columnsHelper.accessor('id_transaksi', {
       cell: (info) => {
+        const href = 1234;
         return (
           <>
-            <div className='flex flex-col items-center justify-center gap-y-3'>
-              <FaEye />
-              <FaRegEdit />
-              <FaPrint />
+            <div className='flex flex-col gap-y-2 w-[150px]'>
+              <button
+                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
+                onClick={() => navigate(`/faktur/pembelian/${href}`)}
+              >
+                Lihat Invoice
+              </button>
             </div>
           </>
         );
@@ -54,16 +64,51 @@ export default function FakturPembelian() {
     }),
   ];
 
+  const HISTORY = [
+    {
+      no_transaksi: '1234',
+      no_suratjalan: 'SJ-1234',
+      no_po: 'PO-1234',
+      supplier: 'PT Briand Perkasa',
+      tanggal_pembayaran: '12 Januari 2022',
+      tanggal_pengiriman: '10 Januari 2022',
+      tanggal_sampai: '20 Januari 2022',
+      nominal: 'Rp 200000',
+      catatan: 'Selesai',
+    },
+    {
+      no_transaksi: '1234',
+      no_suratjalan: 'SJ-1234',
+      no_po: 'PO-1234',
+      supplier: 'PT Briand Perkasa',
+      tanggal_pembayaran: '12 Januari 2022',
+      tanggal_pengiriman: '10 Januari 2022',
+      tanggal_sampai: '20 Januari 2022',
+      nominal: 'Rp 200000',
+      catatan: 'Selesai',
+    },
+    {
+      no_transaksi: '1234',
+      no_suratjalan: 'SJ-1234',
+      no_po: 'PO-1234',
+      supplier: 'PT Briand Perkasa',
+      tanggal_pembayaran: '12 Januari 2022',
+      tanggal_pengiriman: '10 Januari 2022',
+      tanggal_sampai: '20 Januari 2022',
+      nominal: 'Rp 200000',
+      catatan: 'Selesai',
+    },
+  ];
   return (
     <>
       <DashboardShellAdmin>
         <div className='p-10'>
-          <h2 className='text-center text-3xl font-primary'>
-            Faktur Pembelian
+          <h2 className='text-center font-bold text-3xl'>
+            List Invoice Barang
           </h2>
 
-          <div className='bg-white rounded p-4'>
-            <Table data={DUMYDATA} columns={ListFaktur} />
+          <div className='mt-6 p-3 bg-white rounded border border-gray-200 shadow overflow-auto'>
+            <Table columns={LISTSO} data={HISTORY} />
           </div>
         </div>
       </DashboardShellAdmin>

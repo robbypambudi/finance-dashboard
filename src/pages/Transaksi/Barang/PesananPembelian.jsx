@@ -10,7 +10,7 @@ export default function PesananPembelian() {
   const navigate = useNavigate();
   const BuatPesanan = () => {
     toast.success(
-      'Pesanan Berhasil Dibuat, Silahkan Lengkapi Data Berikut Untuk Mendapatkan Surat Jalan',
+      'Pesanan Berhasil Dibuat, Silahkan Lengkapi Data Surat Jalan Berikut',
       { duration: 10000 },
     );
     navigate('/surat/jalan/1234');

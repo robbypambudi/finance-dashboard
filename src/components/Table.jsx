@@ -124,7 +124,7 @@ export default function Table({ data, columns }) {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='hover:bg-gray-200 '>
+            <tr key={row.id} className='hover:bg-gray-200 bg-white'>
               {row.getVisibleCells().map((cell) => (
                 <td
                   className='border border-slate-700 p-2'

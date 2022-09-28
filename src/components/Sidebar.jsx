@@ -18,20 +18,35 @@ const navigation = [
   },
 
   {
-    name: 'Kas dan Bank',
+    name: 'Transaksi Kas/Bank',
     href: '/transaksi',
     icon: AiOutlineTransaction,
     current: false,
-    dropdown: false,
+    dropdown: true,
     dropdownList: [
       {
-        name: 'Transaksi  ',
-        href: '/transaksi/penjualan',
+        name: 'Iuran  ',
+        href: '/transaksi/iuran',
         icon: GrTransaction,
       },
       {
-        name: 'Transaksi ',
-        href: '/transaksi/pembelian',
+        name: 'ATK ',
+        href: '/transaksi/atk',
+        icon: GrTransaction,
+      },
+      {
+        name: 'Mesin',
+        href: '/transaksi/atk',
+        icon: GrTransaction,
+      },
+      {
+        name: 'Gudang',
+        href: '/transaksi/atk',
+        icon: GrTransaction,
+      },
+      {
+        name: 'Kantor',
+        href: '/transaksi/atk',
         icon: GrTransaction,
       },
     ],
@@ -71,7 +86,7 @@ const navigation = [
           },
           {
             name: 'Pembayaran',
-            href: '/pesanan/pembelian',
+            href: '/pembayaran/penjualan',
             dropdown: false,
           },
         ],
@@ -94,7 +109,7 @@ const navigation = [
           },
           {
             name: 'Pembayaran',
-            href: '/pesanan/pembelian',
+            href: '/pembayaran/pembelian',
             dropdown: false,
           },
           {
@@ -289,7 +304,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                     return (
                       <>
                         <Menu
-                          className='  flex items-start gap-x-3 flex-col '
+                          className='  flex items-start gap-x-3 flex-col w-full '
                           as='div'
                         >
                           <Menu.Button
@@ -308,7 +323,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, nav }) {
                             leaveFrom='transform scale-100 opacity-100'
                             leaveTo='transform scale-95 opacity-0'
                           >
-                            <Menu.Items className='flex flex-col p-3 gap-y-2'>
+                            <Menu.Items className='flex flex-col p-3 gap-y-2 w-full'>
                               {items.dropdownList.map((item, index) => {
                                 if (!item.dropdown) {
                                   return (

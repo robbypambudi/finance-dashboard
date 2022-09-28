@@ -24,6 +24,13 @@ import TransaksiUmum from '../pages/Transaksi/Umum/TransaksiUmum';
 import AuthRoute from './AuthRoute';
 import GuestRoute from './GuestRoute';
 import DetailSuratJalan from '../pages/Transaksi/Barang/DetailSuratJalan';
+import PembayaranPembelian from '../pages/Transaksi/Barang/PembayaranPembelian';
+import PembayaranPembelianDetail from '../pages/Transaksi/Barang/PembayaranPembelianDetail';
+import HistoryPembelian from '../pages/Transaksi/Barang/HistoryPembelian';
+import FakturPembelianDetail from '../pages/Transaksi/Barang/FakturPembelianDetail';
+import PengirimanPesananDetail from '../pages/Transaksi/Barang/PengirimanPesananDetail';
+import PembayaranPenjualan from '../pages/Transaksi/Barang/PembayaranPenjualan';
+import FakturPenjualanDetail from '../pages/Transaksi/Barang/FakturPenjualanDetail';
 
 const routes = [
   {
@@ -122,6 +129,42 @@ const routes = [
     visible: true,
   },
   {
+    path: '/pembayaran/pembelian',
+    element: (
+      <AuthRoute>
+        <PembayaranPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pembayaran/penjualan',
+    element: (
+      <AuthRoute>
+        <PembayaranPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/pembayaran/pembelian/:id',
+    element: (
+      <AuthRoute>
+        <PembayaranPembelianDetail />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/history/pembelian',
+    element: (
+      <AuthRoute>
+        <HistoryPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
     path: '/pengiriman/barang',
     element: (
       <AuthRoute>
@@ -158,10 +201,28 @@ const routes = [
     visible: true,
   },
   {
+    path: '/faktur/penjualan/:id',
+    element: (
+      <AuthRoute>
+        <FakturPenjualanDetail />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
     path: '/faktur/pembelian',
     element: (
       <AuthRoute>
         <FakturPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/faktur/pembelian/:id',
+    element: (
+      <AuthRoute>
+        <FakturPembelianDetail />
       </AuthRoute>
     ),
     visible: true,
@@ -175,6 +236,16 @@ const routes = [
     ),
     visible: true,
   },
+  {
+    path: '/pengiriman/barang/:id',
+    element: (
+      <AuthRoute>
+        <PengirimanPesananDetail />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+
   {
     path: '/transaksi/barang/edit/:id',
     element: (
