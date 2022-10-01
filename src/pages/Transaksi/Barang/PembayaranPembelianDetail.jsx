@@ -161,7 +161,7 @@ export default function PembayaranPembelianDetail() {
                 ></input>
               </div>
               <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>No Refrensi</label>
+                <label>No Refrensi Bank</label>
                 <input
                   className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
                   placeholder='Jawaban Anda'
@@ -175,8 +175,15 @@ export default function PembayaranPembelianDetail() {
                   type={'date'}
                 ></input>
               </div>
-
               <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
+                <label>Nominal</label>
+                <input
+                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
+                  type={'number'}
+                ></input>
+              </div>
+
+              {/* <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
                 <label>Status Pembayaran</label>
                 <select
                   className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
@@ -187,7 +194,7 @@ export default function PembayaranPembelianDetail() {
                   <option>PEMBAYARAN 50%</option>
                   <option>PEMBAYARAN 75%</option>
                 </select>
-              </div>
+              </div> */}
 
               <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
                 <label>Bukti Bayar</label>
