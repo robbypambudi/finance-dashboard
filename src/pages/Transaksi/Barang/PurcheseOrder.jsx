@@ -72,7 +72,7 @@ export default function PurcheseOrder() {
             </div>
             <div className='my-2 flex flex-col gap-y-1'>
               <label>Alamat Pengirim</label>
-              <input className='p-3 w-[300px] bg-gray-200 rounded'></input>
+              <textarea className='p-3 w-[300px] bg-gray-200 rounded'></textarea>
             </div>
             <div className=''>
               <TambahItemBarangPO data={ListData} setData={SetListData} />

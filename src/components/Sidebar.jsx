@@ -19,10 +19,10 @@ const navigation = [
 
   {
     name: 'Transaksi Kas/Bank',
-    href: '/transaksi',
+    href: '/transaksi/gudang',
     icon: AiOutlineTransaction,
     current: false,
-    dropdown: true,
+    dropdown: false,
     dropdownList: [
       {
         name: 'Pengeluaran Gudang',
