@@ -148,6 +148,15 @@ export default function DetailSuratJalan() {
             Pengisian Surat Jalan
           </h2>
           <p className='text-center  text-base'>No Transaksi : 1234567</p>
+          <div className='flex flex-col justify-center items-center mt-4'>
+            <select className='w-64 px-4 py-2'>
+              <option>Pilih PO</option>
+              <option>PO-123456</option>
+              <option>PO-123456</option>
+              <option>PO-123456</option>
+              <option>PO-123456</option>
+            </select>
+          </div>
           <div className='flex flex-col items-center justify-center'>
             {/* Export Excel */}
 
@@ -173,6 +182,14 @@ export default function DetailSuratJalan() {
                   className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
                   placeholder='Jawaban Anda'
                 ></input>
+              </div>
+              <div className='flex flex-col gap-y-2 mt-2 items-center justify-center'>
+                <label>Pembuatan SO</label>
+                <select className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'>
+                  <option>-- Pembuatan SO --</option>
+                  <option>PO-12345</option>
+                  <option>PO-12346</option>
+                </select>
               </div>
               <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
                 <label>No Surat Jalan</label>
@@ -249,7 +266,7 @@ export default function DetailSuratJalan() {
               </div>
             </div>
 
-            {/* Detail Item Barang */}
+            {/* Detail Pengiriman Barang */}
             <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
               <p className='text-center font-bold text-2xl'>
                 Detail Pengiriman Barang
@@ -261,7 +278,9 @@ export default function DetailSuratJalan() {
             </div>
             {/* Detail Item Barang */}
             <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
-              <p className='text-center font-bold text-2xl'>Detail Barang</p>
+              <p className='text-center font-bold text-2xl'>
+                Detail Barang pada PO
+              </p>
               <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
             </div>
           </div>

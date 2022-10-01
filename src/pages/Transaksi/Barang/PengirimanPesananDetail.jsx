@@ -23,6 +23,7 @@ export default function PengirimanPesananDetail() {
       satuan: 'Pax',
       harga: '10.000.000',
       discount: '1%',
+      quantity: 20,
       total: '100.000',
       catatan: 'Anak Perusahaan dari PT Waskita',
     },
@@ -33,6 +34,7 @@ export default function PengirimanPesananDetail() {
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: false,
+      quantity: 20,
       tanggal: '9 April 2022',
       catatan: 'Anak Perusahaan dari PT Waskita',
     },
@@ -134,19 +136,23 @@ export default function PengirimanPesananDetail() {
       cell: (info) => info.getValue(),
       header: <span>Satuan</span>,
     }),
+    columnsHelper.accessor('quantity', {
+      cell: (info) => info.getValue(),
+      header: <span>Quantity</span>,
+    }),
 
-    columnsHelper.accessor('harga', {
-      cell: (info) => info.getValue(),
-      header: <span>Harga</span>,
-    }),
-    columnsHelper.accessor('discount', {
-      cell: (info) => info.getValue(),
-      header: <span>Discount </span>,
-    }),
-    columnsHelper.accessor('total', {
-      cell: (info) => info.getValue(),
-      header: <span>Total</span>,
-    }),
+    // columnsHelper.accessor('harga', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Harga</span>,
+    // }),
+    // columnsHelper.accessor('discount', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Discount </span>,
+    // }),
+    // columnsHelper.accessor('total', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Total</span>,
+    // }),
   ];
   const HistoryPenerimaanBarang = [
     columnsHelper.accessor('no_transaksi', {
@@ -252,6 +258,15 @@ export default function PengirimanPesananDetail() {
               Nominal (Termasuk Pajak) : 1234512123
             </p>
           </div>
+          <div className='flex flex-col justify-center items-center mt-4'>
+            <select className='w-64 px-4 py-2'>
+              <option>Pilih PO</option>
+              <option>PO-123456</option>
+              <option>PO-123456</option>
+              <option>PO-123456</option>
+              <option>PO-123456</option>
+            </select>
+          </div>
           {/* Export Excel */}
 
           {isDownload && (
@@ -283,13 +298,7 @@ export default function PengirimanPesananDetail() {
                 placeholder='Jawaban Anda'
               ></input>
             </div>
-            <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-              <label>No PO</label>
-              <input
-                className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                placeholder='Jawaban Anda'
-              ></input>
-            </div>
+
             <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
               <label>Jenis Kendaraan</label>
               <input

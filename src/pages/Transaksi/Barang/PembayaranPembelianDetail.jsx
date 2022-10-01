@@ -145,10 +145,14 @@ export default function PembayaranPembelianDetail() {
             <div className='bg-white p-3 mt-10 md:w-[80%] lg:w-[80%] 2xl:w-1/2 border border-gray-200 shadow-lg'>
               <p className='text-center font-bold text-2xl'>
                 Detail Informasi Pembayaran
+                <p className='text-center text-base'>
+                  *Mohon dilengkapi untuk bisa mendapatkan bukti pembayarn
+                </p>
               </p>
-              <p className='text-center text-base'>
-                *Mohon dilengkapi untuk bisa mendapatkan bukti pembayarn
-              </p>
+              <div className='flex items-center justify-center my-3 gap-x-2'>
+                <input type='checkbox'></input>
+                <label>Pembayaran Sebagai DP</label>
+              </div>
               <div className='flex flex-col gap-y-2 mt-2 items-center justify-center'>
                 <label>Nama Bank</label>
                 <input

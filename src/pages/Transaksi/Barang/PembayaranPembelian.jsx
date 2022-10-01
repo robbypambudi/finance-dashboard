@@ -258,14 +258,14 @@ export default function PembayaranPembelian() {
             <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
           </div>
 
-          <div className='bg-white p-5 rounded-lg mt-8'>
+          <div className='bg-yellow-500 p-5 rounded-lg mt-8'>
             <p className='text-center text-lg font-bold'>
               List Pembelian Belum Selesai Bayar
             </p>
             <Table data={DATAITEMS3} columns={ListBelumSelesaiBayar} />
           </div>
 
-          <div className='bg-white p-5 rounded-lg mt-8'>
+          <div className='bg-blue-500 p-5 rounded-lg mt-8'>
             <p className='text-center text-lg font-bold'>
               History Pembayaran Selesai
             </p>

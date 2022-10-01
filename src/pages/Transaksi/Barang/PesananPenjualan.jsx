@@ -12,7 +12,7 @@ export default function PesananPenjualan() {
       'Berhasil Membuat Pesanan, Silahkan Isi Detail Surat Jalan Berikut',
       { duration: 2000 },
     );
-    return navigate('/pengiriman/barang/1234');
+    return navigate('/po');
   };
   const [ListData, SetListData] = useState([]);
   return (
