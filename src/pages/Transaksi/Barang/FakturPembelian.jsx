@@ -54,7 +54,7 @@ export default function HistoryPembelian() {
                 className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
                 onClick={() => navigate(`/faktur/pembelian/${href}`)}
               >
-                Lihat Invoice
+                Buat Invoice
               </button>
             </div>
           </>
