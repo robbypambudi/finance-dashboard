@@ -65,6 +65,11 @@ const navigation = [
             dropdown: false,
           },
           {
+            name: 'Pembuatan PO',
+            href: '/po',
+            dropdown: false,
+          },
+          {
             name: 'Pengiriman Pesanan',
             href: '/pengiriman/barang',
             dropdown: false,
@@ -90,6 +95,11 @@ const navigation = [
           {
             name: 'Pesanan Pembelian',
             href: '/pesanan/pembelian',
+            dropdown: false,
+          },
+          {
+            name: 'Buat SO',
+            href: '/so',
             dropdown: false,
           },
           {

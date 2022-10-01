@@ -2,7 +2,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { FormProvider, useForm } from 'react-hook-form';
 import Table from './Table';
 
-export default function TambahItemBarang({ data, setData }) {
+export default function TambahItemBarangPO({ data, setData }) {
   const columnsHelper = createColumnHelper();
   const { register, handleSubmit } = useForm();
   const ListItems = [
@@ -63,13 +63,14 @@ export default function TambahItemBarang({ data, setData }) {
                   <th>Harga/Rp</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='text-center'>
                 <tr>
                   <td>
                     <input
                       className=''
                       id='kode-barang'
                       name='kode-barang'
+                      // disabled={true}
                       {...register('kode-barang', {
                         required: true,
                         maxLength: 20,
@@ -77,7 +78,7 @@ export default function TambahItemBarang({ data, setData }) {
                     ></input>
                   </td>
                   <td>
-                    <input
+                    <select
                       className=''
                       id='nama'
                       name='nama'
@@ -85,7 +86,11 @@ export default function TambahItemBarang({ data, setData }) {
                         required: true,
                         maxLength: 20,
                       })}
-                    ></input>
+                    >
+                      <option>--- Pilih Barang ---</option>
+                      <option>Polymer</option>
+                      <option>Biji Plastik</option>
+                    </select>
                   </td>
                   <td>
                     <input
