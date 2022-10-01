@@ -32,6 +32,8 @@ import PengirimanPesananDetail from '../pages/Transaksi/Barang/PengirimanPesanan
 import PembayaranPenjualan from '../pages/Transaksi/Barang/PembayaranPenjualan';
 import FakturPenjualanDetail from '../pages/Transaksi/Barang/FakturPenjualanDetail';
 import PembayaranPenjualanDetail from '../pages/Transaksi/Barang/PembayaranPenjualanDetail';
+import PurcheseOrder from '../pages/Transaksi/Barang/PurcheseOrder';
+import SalesOrder from '../pages/Transaksi/Barang/SalesOrder';
 
 const routes = [
   {
@@ -125,6 +127,24 @@ const routes = [
     element: (
       <AuthRoute>
         <PesananPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/po',
+    element: (
+      <AuthRoute>
+        <PurcheseOrder />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/so',
+    element: (
+      <AuthRoute>
+        <SalesOrder />
       </AuthRoute>
     ),
     visible: true,

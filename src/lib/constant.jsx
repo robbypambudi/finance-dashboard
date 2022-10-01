@@ -15,10 +15,10 @@ export const Jenis_Transaksi = [
   //   name: 'General',
   //   value: 'general',
   // },
-  // {
-  //   name: 'Pemasukan',
-  //   value: 'pemasukan',
-  // },
+  {
+    name: 'Pemasukan',
+    value: 'pemasukan',
+  },
   // {
   //   name: 'Hutang',
   //   value: 'hutang',
