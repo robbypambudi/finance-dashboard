@@ -9,31 +9,32 @@ import LabaRugi from '../pages/Laporan/LabaRugi';
 import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
 import LaporanTransaksi from '../pages/Laporan/Transaksi';
 import StokBarang from '../pages/Stok/Barang';
-import FakturPembelian from '../pages/Transaksi/Barang/FakturPembelian';
+import FakturPembelian from '../pages/Transaksi/Barang/Pembelian/FakturPembelian';
 import FakturPenjualan from '../pages/Transaksi/Barang/FakturPenjualan';
 import SuratJalan from '../pages/Transaksi/Barang/SuratJalan';
 import PengirimanBarang from '../pages/Transaksi/Barang/PengirimanPesanan';
-import PesananPembelian from '../pages/Transaksi/Barang/PesananPembelian';
+import PesananPembelian from '../pages/Transaksi/Barang/Pembelian/PesananPembelian';
 import PesananPenjualan from '../pages/Transaksi/Barang/PesananPenjualan';
 import DashboardBarang from '../pages/Transaksi/Dashboard/Barang';
 import TranskasiBarangEdit from '../pages/Transaksi/Dashboard/Edit';
 import TransaksiBarang from '../pages/Transaksi/TransaksiBarang';
-import TransaksiPembelian from '../pages/Transaksi/TransaksiPembelian';
+// import TransaksiPembelian from '../pages/Transaksi/TransaksiPembelia';
 import TransaksiPenjualan from '../pages/Transaksi/TransaksiPenjualan';
 import TransaksiUmum from '../pages/Transaksi/Umum/TransaksiUmum';
 import AuthRoute from './AuthRoute';
 import GuestRoute from './GuestRoute';
-import DetailSuratJalan from '../pages/Transaksi/Barang/DetailSuratJalan';
-import PembayaranPembelian from '../pages/Transaksi/Barang/PembayaranPembelian';
-import PembayaranPembelianDetail from '../pages/Transaksi/Barang/PembayaranPembelianDetail';
-import HistoryPembelian from '../pages/Transaksi/Barang/HistoryPembelian';
-import FakturPembelianDetail from '../pages/Transaksi/Barang/FakturPembelianDetail';
+import DetailSuratJalan from '../pages/Transaksi/Barang/Pembelian/DetailSuratJalan';
+import PembayaranPembelian from '../pages/Transaksi/Barang/Pembelian/PembayaranPembelian';
+import PembayaranPembelianDetail from '../pages/Transaksi/Barang/Pembelian/PembayaranPembelianDetail';
+import HistoryPembelian from '../pages/Transaksi/Barang/Pembelian/HistoryPembelian';
+import FakturPembelianDetail from '../pages/Transaksi/Barang/Pembelian/FakturPembelianDetail';
 import PengirimanPesananDetail from '../pages/Transaksi/Barang/PengirimanPesananDetail';
 import PembayaranPenjualan from '../pages/Transaksi/Barang/PembayaranPenjualan';
 import FakturPenjualanDetail from '../pages/Transaksi/Barang/FakturPenjualanDetail';
 import PembayaranPenjualanDetail from '../pages/Transaksi/Barang/PembayaranPenjualanDetail';
-import PurcheseOrder from '../pages/Transaksi/Barang/PurcheseOrder';
 import SalesOrder from '../pages/Transaksi/Barang/SalesOrder';
+import ReturPembelian from '../pages/Transaksi/Barang/Pembelian/ReturPembelian';
+import ReturPembelianDetail from '../pages/Transaksi/Barang/Pembelian/ReturPembelianDetail';
 
 const routes = [
   {
@@ -131,15 +132,7 @@ const routes = [
     ),
     visible: true,
   },
-  {
-    path: '/po',
-    element: (
-      <AuthRoute>
-        <PurcheseOrder />
-      </AuthRoute>
-    ),
-    visible: true,
-  },
+
   {
     path: '/so',
     element: (
@@ -253,6 +246,24 @@ const routes = [
     element: (
       <AuthRoute>
         <FakturPembelianDetail />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/retur/pembelian',
+    element: (
+      <AuthRoute>
+        <ReturPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/retur/pembelian/:id',
+    element: (
+      <AuthRoute>
+        <ReturPembelianDetail />
       </AuthRoute>
     ),
     visible: true,

@@ -22,14 +22,6 @@ export default function TambahItemBarangPO({ data, setData }) {
       cell: (info) => info.getValue(),
       header: <span>Quantity</span>,
     }),
-    columnsHelper.accessor('harga', {
-      cell: (info) => info.getValue(),
-      header: <span>Harga/Rp</span>,
-    }),
-    columnsHelper.accessor('total', {
-      cell: (info) => <p>{info.getValue()}</p>,
-      header: <span>Total</span>,
-    }),
   ];
   const onSubmit = (e) => {
     const items = {
@@ -60,7 +52,6 @@ export default function TambahItemBarangPO({ data, setData }) {
                   <th>Nama Barang</th>
                   <th>Satuan</th>
                   <th>Jumlah</th>
-                  <th>Harga/Rp</th>
                 </tr>
               </thead>
               <tbody className='text-center'>
@@ -109,17 +100,6 @@ export default function TambahItemBarangPO({ data, setData }) {
                       id='jumlah'
                       name='jumlah'
                       {...register('jumlah', {
-                        required: true,
-                        maxLength: 20,
-                      })}
-                    ></input>
-                  </td>
-                  <td>
-                    <input
-                      className=''
-                      id='harga'
-                      name='harga'
-                      {...register('harga', {
                         required: true,
                         maxLength: 20,
                       })}

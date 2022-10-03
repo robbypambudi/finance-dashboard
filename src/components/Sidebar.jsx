@@ -97,14 +97,15 @@ const navigation = [
             href: '/pesanan/pembelian',
             dropdown: false,
           },
+
           {
-            name: 'Buat SO',
-            href: '/so',
+            name: 'Penerimaan Barang',
+            href: '/surat/jalan',
             dropdown: false,
           },
           {
-            name: 'Surat Jalan',
-            href: '/surat/jalan',
+            name: 'Faktur Pembelian',
+            href: '/faktur/pembelian',
             dropdown: false,
           },
           {
@@ -113,13 +114,13 @@ const navigation = [
             dropdown: false,
           },
           {
-            name: 'History Pembelian',
-            href: '/history/pembelian',
+            name: 'Retur Pembelian',
+            href: '/retur/pembelian',
             dropdown: false,
           },
           {
-            name: 'Faktur Pembelian',
-            href: '/faktur/pembelian',
+            name: 'History Pembelian',
+            href: '/history/pembelian',
             dropdown: false,
           },
         ],

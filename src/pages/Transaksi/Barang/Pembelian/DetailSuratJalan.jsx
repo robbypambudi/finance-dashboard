@@ -2,12 +2,15 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Table from '../../../components/Table';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
+import Table from '../../../../components/Table';
+import TambahItemBarangPO from '../../../../components/TambahItemBarangPO';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 
 export default function DetailSuratJalan() {
   const [isDownload, setIsDownload] = useState(false);
   const navigate = useNavigate();
+  const [ListData, SetListData] = useState([]);
+
   const { id } = useParams();
   const columnsHelper = createColumnHelper();
   const listBarangCheck = [
@@ -45,18 +48,9 @@ export default function DetailSuratJalan() {
       cell: (info) => info.getValue(),
       header: <span>Satuan</span>,
     }),
-
-    columnsHelper.accessor('harga', {
+    columnsHelper.accessor('quantity', {
       cell: (info) => info.getValue(),
-      header: <span>Harga</span>,
-    }),
-    columnsHelper.accessor('discount', {
-      cell: (info) => info.getValue(),
-      header: <span>Discount </span>,
-    }),
-    columnsHelper.accessor('total', {
-      cell: (info) => info.getValue(),
-      header: <span>Total</span>,
+      header: <span>Quantity</span>,
     }),
   ];
 
@@ -67,7 +61,7 @@ export default function DetailSuratJalan() {
       satuan: 'Pax',
       harga: '10.000.000',
       discount: '1%',
-      total: '100.000',
+      quantity: '10',
       catatan: 'Anak Perusahaan dari PT Waskita',
     },
   ];
@@ -143,19 +137,27 @@ export default function DetailSuratJalan() {
   return (
     <>
       <DashboardShellAdmin>
-        <div className='p-10'>
+        <div className='p-10 relative'>
+          <div className='absolute top-10 right-10'>
+            <button className='px-4 py-2 border border-green-500 rounded '>
+              Diterima
+            </button>
+          </div>
           <h2 className='text-center font-bold text-3xl'>
             Pengisian Surat Jalan
           </h2>
           <p className='text-center  text-base'>No Transaksi : 1234567</p>
-          <div className='flex flex-col justify-center items-center mt-4'>
-            <select className='w-64 px-4 py-2'>
-              <option>Pilih PO</option>
-              <option>PO-123456</option>
-              <option>PO-123456</option>
-              <option>PO-123456</option>
-              <option>PO-123456</option>
-            </select>
+          <p className='text-center  text-base'>No PO : PO-1234567</p>
+          <div className='flex flex-center justify-center my-4 gap-x-4'>
+            <button className='px-4 py-2 bg-green-500 rounded '>
+              Diterima
+            </button>
+            <button className='px-4 py-2 bg-yellow-500 rounded '>
+              Dikirim
+            </button>
+            <button className='px-4 py-2 bg-red-500 rounded '>
+              Dibatalkan
+            </button>
           </div>
           <div className='flex flex-col items-center justify-center'>
             {/* Export Excel */}
@@ -183,14 +185,7 @@ export default function DetailSuratJalan() {
                   placeholder='Jawaban Anda'
                 ></input>
               </div>
-              <div className='flex flex-col gap-y-2 mt-2 items-center justify-center'>
-                <label>Pembuatan SO</label>
-                <select className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'>
-                  <option>-- Pembuatan SO --</option>
-                  <option>PO-12345</option>
-                  <option>PO-12346</option>
-                </select>
-              </div>
+
               <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
                 <label>No Surat Jalan</label>
                 <input
@@ -240,8 +235,12 @@ export default function DetailSuratJalan() {
                   type={'file'}
                 ></input>
               </div>
-              <div className='mt-5 p-2'>
-                <Table data={DATAITEMS} columns={listBarangCheck} />
+              {/* <div className='mt-5 p-2'>
+                <Table data={DATAITEMS
+                } columns={listBarangCheck} />
+              </div> */}
+              <div className=''>
+                <TambahItemBarangPO data={ListData} setData={SetListData} />
               </div>
 
               <div className='flex items-center justify-center gap-x-5 mt-4'>

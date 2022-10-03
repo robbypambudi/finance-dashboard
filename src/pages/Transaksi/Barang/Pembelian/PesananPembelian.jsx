@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { redirect, useNavigate } from 'react-router-dom';
-import PesananComponents from '../../../components/PesananComponents';
-import TambahItemBarang from '../../../components/TambahItemBarang';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
-
+import PesananComponents from '../../../../components/PesananComponents';
+import TambahItemBarang from '../../../../components/TambahItemBarang';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 export default function PesananPembelian() {
   const [ListData, SetListData] = useState([]);
   const navigate = useNavigate();
@@ -19,11 +18,11 @@ export default function PesananPembelian() {
     <>
       <DashboardShellAdmin>
         <div className='p-5'>
-          <h2 className='text-center text-3xl font-bold font-primary'>
-            Pesanan Pembelian
+          <h2 className='text-center text-3xl font-bold font-primary my-2'>
+            Purchase Requistion
           </h2>
 
-          <div className='w-1/2'>
+          <div className='flex items-center justify-center'>
             <PesananComponents />
           </div>
           <div className=''>

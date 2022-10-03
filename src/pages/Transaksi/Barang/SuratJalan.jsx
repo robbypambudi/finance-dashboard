@@ -31,10 +31,10 @@ export default function SuratJalan() {
       cell: (info) => info.getValue(),
       header: <span>Vendor</span>,
     }),
-    columnsHelper.accessor('nominal', {
-      cell: (info) => info.getValue(),
-      header: <span>Nominal</span>,
-    }),
+    // columnsHelper.accessor('nominal', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Nominal</span>,
+    // }),
 
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
@@ -76,10 +76,10 @@ export default function SuratJalan() {
       cell: (info) => info.getValue(),
       header: <span>Vendor</span>,
     }),
-    columnsHelper.accessor('nominal', {
-      cell: (info) => info.getValue(),
-      header: <span>Nominal</span>,
-    }),
+    // columnsHelper.accessor('nominal', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Nominal</span>,
+    // }),
 
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
@@ -152,7 +152,7 @@ export default function SuratJalan() {
       <DashboardShellAdmin>
         <div className='p-10'>
           <h2 className='text-center text-3xl font-bold my-3'>
-            Pengisian Surat Jalan
+            Penerimaan Barang
           </h2>
 
           <div className='bg-white p-5 rounded-lg'>
@@ -170,7 +170,7 @@ export default function SuratJalan() {
           </div>
           <div className='bg-blue-500 p-5 rounded-lg mt-8'>
             <p className='text-center text-lg font-bold'>
-              History Pengiriman Barang Selesai
+              List Pembelian Barang Diterima
             </p>
             <Table data={dataHistory2} columns={HistoryPenerimaanBarang} />
           </div>

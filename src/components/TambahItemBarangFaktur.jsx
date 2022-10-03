@@ -2,7 +2,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { FormProvider, useForm } from 'react-hook-form';
 import Table from './Table';
 
-export default function TambahItemBarang({ data, setData }) {
+export default function TambahItemBarangFaktur({ data, setData }) {
   const columnsHelper = createColumnHelper();
   const { register, handleSubmit } = useForm();
   const ListItems = [
@@ -18,17 +18,25 @@ export default function TambahItemBarang({ data, setData }) {
       cell: (info) => info.getValue(),
       header: <span>Satuan</span>,
     }),
-    columnsHelper.accessor('jumlah', {
-      cell: (info) => info.getValue(),
-      header: <span>Quantity</span>,
-    }),
     columnsHelper.accessor('harga', {
       cell: (info) => info.getValue(),
       header: <span>Harga</span>,
     }),
-    columnsHelper.accessor('total', {
+    columnsHelper.accessor('jumlah', {
       cell: (info) => info.getValue(),
-      header: <span>Total</span>,
+      header: <span>Quantity</span>,
+    }),
+    columnsHelper.accessor('kode_transaksi', {
+      cell: (info) => (
+        <>
+          <div className='flex flex-col justify-center items-center gap-y-2'>
+            <button>Edit</button>
+            <button>Lihat</button>
+            <button>Hapus</button>
+          </div>
+        </>
+      ),
+      header: <span>Aksi</span>,
     }),
   ];
   const onSubmit = (e) => {
@@ -47,44 +55,58 @@ export default function TambahItemBarang({ data, setData }) {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center my-10 w-full overflow-auto'>
+      <div className='flex flex-col items-center justify-center my-10 w-full '>
         <p className='text-xl font-primary '>Item Barang</p>
 
         {/* Add Transaksi */}
-        <div className=' bg-white p-3 border border-gray-202 '>
+        <div className=' w-full overflow-auto'>
           <form className='w-full mt-10' onSubmit={handleSubmit(onSubmit)}>
             <table className='table-auto w-full text-center'>
               <thead className='border border-gray-200 px-2 py-2 bg-gray-200'>
                 <tr>
-                  <th>Items</th>
-                  <th>Deskripsi</th>
-                  <th>Quantity</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
                   <th>Satuan</th>
-                  <th>Discount</th>
                   <th>Harga</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Bayar</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='text-center'>
                 <tr>
                   <td>
-                    <select
-                      className=' px-4 py-2 mx-2 bg-gray-200'
+                    <input
+                      className=''
                       id='kode-barang'
                       name='kode-barang'
+                      // disabled={true}
                       {...register('kode-barang', {
                         required: true,
                         maxLength: 20,
                       })}
+                    ></input>
+                  </td>
+                  <td>
+                    <select
+                      className=''
+                      id='nama'
+                      name='nama'
+                      {...register('nama', {
+                        required: true,
+                        maxLength: 20,
+                      })}
                     >
-                      <option>Pilih barang</option>
+                      <option>--- Pilih Barang ---</option>
+                      <option>Polymer</option>
+                      <option>Biji Plastik</option>
                     </select>
                   </td>
                   <td>
                     <input
-                      className=' px-4 py-2 mx-2 bg-gray-200'
+                      className=''
                       id='satuan'
                       name='satuan'
-                      placeholder='Auto terisi saat user memilih barang'
                       {...register('satuan', {
                         required: true,
                         maxLength: 20,
@@ -93,17 +115,7 @@ export default function TambahItemBarang({ data, setData }) {
                   </td>
                   <td>
                     <input
-                      className=' px-4 py-2 mx-2 bg-gray-200'
-                      name='jumlah'
-                      {...register('jumlah', {
-                        required: true,
-                        maxLength: 20,
-                      })}
-                    ></input>
-                  </td>
-                  <td>
-                    <input
-                      className=' px-4 py-2 mx-2 bg-gray-200'
+                      className=''
                       id='jumlah'
                       name='jumlah'
                       {...register('jumlah', {
@@ -114,10 +126,33 @@ export default function TambahItemBarang({ data, setData }) {
                   </td>
                   <td>
                     <input
-                      className='py-2 bg-gray-100'
-                      id='harga'
-                      name='harga'
-                      {...register('harga', {
+                      className=''
+                      id='jumlah'
+                      name='jumlah'
+                      {...register('jumlah', {
+                        required: true,
+                        maxLength: 20,
+                      })}
+                    ></input>
+                  </td>
+                  <td>
+                    <input
+                      className=''
+                      id='jumlah'
+                      name='jumlah'
+                      {...register('jumlah', {
+                        required: true,
+                        maxLength: 20,
+                      })}
+                    ></input>
+                  </td>
+                  <td>
+                    <input
+                      className='p-2'
+                      id='jumlah'
+                      name='jumlah'
+                      type='checkbox'
+                      {...register('jumlah', {
                         required: true,
                         maxLength: 20,
                       })}
@@ -138,7 +173,7 @@ export default function TambahItemBarang({ data, setData }) {
           </form>
         </div>
 
-        <div className='mt-4 bg-white p-3 rounded '>
+        <div className='mt-4'>
           <Table data={data} columns={ListItems} />
         </div>
       </div>

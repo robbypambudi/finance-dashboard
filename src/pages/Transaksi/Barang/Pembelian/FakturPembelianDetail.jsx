@@ -2,12 +2,18 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Table from '../../../components/Table';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
+import Table from '../../../../components/Table';
+import TambahItemBarangFaktur from '../../../../components/TambahItemBarangFaktur';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 
-export default function PembayaranPembelianDetail() {
-  const [isDownload, setIsDownload] = useState(false);
+export default function FakturPembelianDetail() {
+  const [isDownload, setIsDownload] = useState(true);
+  const [data, setData] = useState([]);
   const navigate = useNavigate();
+
+  const pembayaran = () => {
+    return navigate('/pembayaran/pembelian');
+  };
   const { id } = useParams();
   const columnsHelper = createColumnHelper();
   const ListPenerimaanBarang = [
@@ -40,7 +46,7 @@ export default function PembayaranPembelianDetail() {
   const HistoryPembayaranSebelumnya = [
     columnsHelper.accessor('id_pembayaran', {
       cell: (info) => info.getValue(),
-      header: <span>Kode Barang</span>,
+      header: <span>Kode Faktur</span>,
     }),
     columnsHelper.accessor('bank', {
       cell: (info) => info.getValue(),
@@ -48,19 +54,11 @@ export default function PembayaranPembelianDetail() {
     }),
     columnsHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
-      header: <span>Tanggal Pembayaran</span>,
+      header: <span>Tanggal Pembuatan</span>,
     }),
     columnsHelper.accessor('nominal', {
       cell: (info) => info.getValue(),
-      header: <span>Harga</span>,
-    }),
-    columnsHelper.accessor('sudah_bayar', {
-      cell: (info) => info.getValue(),
-      header: <span>Dibayar</span>,
-    }),
-    columnsHelper.accessor('sisa_bayar', {
-      cell: (info) => info.getValue(),
-      header: <span>Sisa</span>,
+      header: <span>Total Harga</span>,
     }),
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
@@ -96,8 +94,6 @@ export default function PembayaranPembelianDetail() {
       bank: 'BCA',
       nominal: 'Rp. 500.000',
       tanggal: '9 April 2010',
-      sudah_bayar: '500.000',
-      sisa_bayar: '9.500.000',
       // discount: '1%',
       bukti_bayar: '/asdasadafafeaf/afae/fa/feaf/aef/ae',
       catatan: 'Anak Perusahaan dari PT Waskita',
@@ -113,7 +109,7 @@ export default function PembayaranPembelianDetail() {
   return (
     <>
       <DashboardShellAdmin>
-        <div className='p-10'>
+        <div className='p-4'>
           <h2 className='text-center font-bold text-3xl'>
             Pengisian Pembayaran
           </h2>
@@ -142,93 +138,7 @@ export default function PembayaranPembelianDetail() {
             )}
 
             {/* Detail Informasi Surat Jalan */}
-            <div className='bg-white p-3 mt-10 md:w-[80%] lg:w-[80%] 2xl:w-1/2 border border-gray-200 shadow-lg'>
-              <p className='text-center font-bold text-2xl'>
-                Detail Informasi Pembayaran
-                <p className='text-center text-base'>
-                  *Mohon dilengkapi untuk bisa mendapatkan bukti pembayarn
-                </p>
-              </p>
-              <div className='flex items-center justify-center my-3 gap-x-2'>
-                <input type='checkbox'></input>
-                <label>Pembayaran Sebagai DP</label>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-2 items-center justify-center'>
-                <label>Nama Bank</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  placeholder='Jawaban Anda'
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>No Refrensi Bank</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  placeholder='Jawaban Anda'
-                ></input>
-              </div>
 
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Payment Date</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  type={'date'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Nominal</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  type={'number'}
-                ></input>
-              </div>
-
-              {/* <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Status Pembayaran</label>
-                <select
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  type={'date'}
-                >
-                  <option>LUNAS</option>
-                  <option>PEMBAYARAN 25%</option>
-                  <option>PEMBAYARAN 50%</option>
-                  <option>PEMBAYARAN 75%</option>
-                </select>
-              </div> */}
-
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Bukti Bayar</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  type='file'
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Catatan</label>
-                <textarea className='px-4 py-2 rounded w-1/2 bg-gray-200'></textarea>
-              </div>
-
-              <div className='flex items-center justify-center gap-x-5 mt-4'>
-                <button
-                  className='px-4 py-2 bg-green-500 text-white rounded-lg'
-                  onClick={() => navigate('/pesanan/pembelian')}
-                >
-                  Kembali
-                </button>
-                <button
-                  className='px-4 py-2 bg-blue-500 text-white rounded-lg'
-                  onClick={() => onBuktiBayar()}
-                >
-                  Simpan
-                </button>
-                <button
-                  className='px-4 py-2 bg-red-500 text-white rounded-lg'
-                  onClick={() => navigate('/pembayaran/pembelian')}
-                >
-                  Selanjutnya
-                </button>
-              </div>
-            </div>
             <div className='bg-white p-3 mt-10 md:w-[80%] lg:w-[80%] 2xl:w-1/2 border border-gray-200 shadow-lg'>
               <p className='text-center font-bold text-2xl'>
                 Detail Informasi Surat Jalan
@@ -288,21 +198,46 @@ export default function PembayaranPembelianDetail() {
                   type={'date'}
                 ></input>
               </div>
+
+              <div>
+                <TambahItemBarangFaktur data={data} setData={setData} />
+              </div>
+
+              <div className='flex items-center justify-center gap-x-5 mt-4'>
+                <button
+                  className='px-4 py-2 bg-green-500 text-white rounded-lg'
+                  onClick={() => navigate('/pesanan/pembelian')}
+                >
+                  Kembali
+                </button>
+                <button
+                  className='px-4 py-2 bg-blue-500 text-white rounded-lg'
+                  onClick={() => pembayaran()}
+                >
+                  Simpan
+                </button>
+                <button
+                  className='px-4 py-2 bg-red-500 text-white rounded-lg'
+                  onClick={() => navigate('/pembayaran/pembelian')}
+                >
+                  Selanjutnya
+                </button>
+              </div>
             </div>
 
             {/* Detail Item Barang */}
-            <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
+            <div className='bg-white mt-5 p-2 border border-gray-200 shadow'>
               <p className='text-center font-bold text-2xl'>
-                Detail Pembayaran
+                History Pembuatan Faktur
               </p>
               <Table
                 data={PEMBAYARANSEBELUMNYA}
                 columns={HistoryPembayaranSebelumnya}
               />
             </div>
-            <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
+            <div className='bg-white mt-5 p-2 border border-gray-200 shadow'>
               <p className='text-center font-bold text-2xl'>
-                Detail Informasi Barang
+                Detail Informasi Pesanan Barang
               </p>
               <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
             </div>

@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
-import Table from '../../../components/Table';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
+import Table from '../../../../components/Table';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 
 export default function PembayaranPembelian() {
   const columnsHelper = createColumnHelper();

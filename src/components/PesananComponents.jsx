@@ -1,43 +1,56 @@
 export default function PesananComponents() {
   return (
     <>
-      <div className=''>
+      <div className='bg-white p-3 rounded w-1/2'>
         <h2 className='text-start text-xl font-bold mt-5'>Informasi Pembeli</h2>
         <div className='flex flex-col px-2 py-1'>
-          <label>Tanggal</label>
+          <label>No Pesanan</label>
           <input
-            className='px-2 py-1 h-10 rounded'
+            className='px-2 py-1 h-10 rounded bg-gray-100'
+            placeholder='1001'
+            type='text'
+          ></input>
+        </div>
+        <div className='flex flex-col px-2 py-1'>
+          <label>Tanggal Permintaan</label>
+          <input
+            className='px-2 py-1 h-10 rounded bg-gray-100'
             placeholder='Nama'
             type='date'
           ></input>
         </div>
         <div className='flex flex-col px-2 py-1'>
           <label>Vendor</label>
-          <input
-            className='px-2 py-1 h-10 rounded'
+          <select
+            className='px-2 py-1 h-10 rounded bg-gray-100'
             placeholder='Vendor'
-          ></input>
+          >
+            <option>Pilih Supplier</option>
+            <option>1001 - PT 123</option>
+            <option>1002 - PT 345</option>
+            <option>1003 - PT ABC</option>
+          </select>
         </div>
-        <div className='flex flex-col px-2 py-1'>
+        <div className='flex flex-col px-2 py-1 '>
           <label>Alamat</label>
           <textarea
-            className='px-2 py-1 rounded'
-            placeholder='Alamat'
+            className='px-2 py-1 rounded bg-gray-100'
+            placeholder='Akan terisi saat user memilih vendor'
           ></textarea>
         </div>
         <div className='flex flex-col px-2 py-1'>
           <label>Telepon</label>
           <input
-            className='px-2 py-1 h-10 rounded'
-            placeholder='Telepon'
+            className='px-2 py-1 h-10 rounded bg-gray-100'
+            placeholder='Akan terisi saat user memilih vendor'
           ></input>
         </div>
         <div className='flex flex-col px-2 py-1'>
           <label>Catatan</label>
-          <input
-            className='px-2 py-1 h-10 rounded'
+          <textarea
+            className='px-2 py-1 h-10 rounded bg-gray-100'
             placeholder='Catatan'
-          ></input>
+          ></textarea>
         </div>
       </div>
     </>
