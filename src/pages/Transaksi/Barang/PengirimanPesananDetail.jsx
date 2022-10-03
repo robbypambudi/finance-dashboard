@@ -252,7 +252,7 @@ export default function PengirimanPesananDetail() {
 
           <div>
             <h2 className='text-center text-xl font-bold '>
-              No Transaksi : 1234512
+              No PO : PO-0110202203
             </h2>
             <p className='text-center text-xl font-bold '>
               Nominal (Termasuk Pajak) : 1234512123

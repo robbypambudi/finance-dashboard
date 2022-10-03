@@ -8,25 +8,17 @@ export default function ReturPembelian() {
   const navigate = useNavigate();
 
   const LISTSO = [
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>No Transaksi</span>,
+    columnsHelper.accessor('no_po', {
+      cell: (info) => <p className='w-[150px]'>{info.getValue()}</p>,
+      header: <span>No PO</span>,
     }),
     columnsHelper.accessor('no_suratjalan', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      cell: (info) => <p className='w-[150px]'>{info.getValue()}</p>,
       header: <span>No Surat Jalan</span>,
-    }),
-    columnsHelper.accessor('no_po', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>No PO</span>,
     }),
     columnsHelper.accessor('supplier', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>Supplier</span>,
-    }),
-    columnsHelper.accessor('tanggal_pembayaran', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>Tanggal Pembayaran</span>,
+      header: <span>Vendor</span>,
     }),
     columnsHelper.accessor('tanggal_pengiriman', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
@@ -35,6 +27,10 @@ export default function ReturPembelian() {
     columnsHelper.accessor('tanggal_sampai', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Tanggal Sampai</span>,
+    }),
+    columnsHelper.accessor('tanggal_pembayaran', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Pembayaran</span>,
     }),
     // columnsHelper.accessor('nominal', {
     //   cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
@@ -67,8 +63,8 @@ export default function ReturPembelian() {
   const HISTORY = [
     {
       no_transaksi: '1234',
-      no_suratjalan: 'SJ-1234',
-      no_po: 'PO-1234',
+      no_suratjalan: 'SJ-0110202201',
+      no_po: 'PO-0110202203',
       supplier: 'PT Briand Perkasa',
       tanggal_pembayaran: '12 Januari 2022',
       tanggal_pengiriman: '10 Januari 2022',
@@ -78,8 +74,8 @@ export default function ReturPembelian() {
     },
     {
       no_transaksi: '1234',
-      no_suratjalan: 'SJ-1234',
-      no_po: 'PO-1234',
+      no_suratjalan: 'SJ-0110202202',
+      no_po: 'PO-0110202202',
       supplier: 'PT Briand Perkasa',
       tanggal_pembayaran: '12 Januari 2022',
       tanggal_pengiriman: '10 Januari 2022',
@@ -89,8 +85,8 @@ export default function ReturPembelian() {
     },
     {
       no_transaksi: '1234',
-      no_suratjalan: 'SJ-1234',
-      no_po: 'PO-1234',
+      no_suratjalan: 'SJ-0110202203',
+      no_po: 'PO-0110202203',
       supplier: 'PT Briand Perkasa',
       tanggal_pembayaran: '12 Januari 2022',
       tanggal_pengiriman: '10 Januari 2022',
@@ -103,7 +99,7 @@ export default function ReturPembelian() {
     <>
       <DashboardShellAdmin>
         <div className='p-10'>
-          <h2 className='text-center font-bold text-3xl'>List Faktur Barang</h2>
+          <h2 className='text-center font-bold text-3xl'> Retur Barang</h2>
 
           <div className='mt-6 p-3 bg-white rounded border border-gray-200 shadow overflow-auto'>
             <Table columns={LISTSO} data={HISTORY} />

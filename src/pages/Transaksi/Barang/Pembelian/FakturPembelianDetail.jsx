@@ -110,15 +110,12 @@ export default function FakturPembelianDetail() {
     <>
       <DashboardShellAdmin>
         <div className='p-4'>
-          <h2 className='text-center font-bold text-3xl'>
-            Pengisian Pembayaran
-          </h2>
+          <h2 className='text-center font-bold text-3xl'>Pengisian Faktur</h2>
           <p className='text-center font-bold text-xl mt-5'>
-            No Transaksi : 1234567
+            No PO : PO-0110202202
           </p>
-          <p className='text-center font-bold text-xl'>No PO : 1234567</p>
           <p className='text-center font-bold text-xl'>
-            No Surat Jalan : 1234567
+            No Surat Jalan : SJ-0110202202
           </p>
           <p className='text-center font-bold text-xl'>
             Nominal (Termasuk Pajak): Rp. 200.000.00
@@ -139,66 +136,14 @@ export default function FakturPembelianDetail() {
 
             {/* Detail Informasi Surat Jalan */}
 
-            <div className='bg-white p-3 mt-10 md:w-[80%] lg:w-[80%] 2xl:w-1/2 border border-gray-200 shadow-lg'>
-              <p className='text-center font-bold text-2xl'>
-                Detail Informasi Surat Jalan
-              </p>
-
+            <div className='bg-white p-3 mt-10 w-full border border-gray-200 shadow-lg'>
               <div className='flex flex-col gap-y-2 mt-2 items-center justify-center'>
-                <label>Nama Supir / WA</label>
+                <label>No Invoice</label>
                 <input
                   className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
                   placeholder='Jawaban Anda'
-                  value={'Pak Budi'}
                 ></input>
               </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>No Surat Jalan</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  placeholder='Jawaban Anda'
-                  value={'1234521'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Jenis Kendaraan</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  placeholder='Jawaban Anda'
-                  value={'Dum Truck'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>No Polisi Kendaraan</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  placeholder='Jawaban Anda'
-                  value={'Trek'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Vendor</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  placeholder='Jawaban Anda'
-                  value={'PT Tirta Agung'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Tanggal Dikirim</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  type={'date'}
-                ></input>
-              </div>
-              <div className='flex flex-col gap-y-2 mt-1 items-center justify-center'>
-                <label>Tanggal Diterima</label>
-                <input
-                  className='px-4 py-2 h-10 rounded w-1/2 bg-gray-200'
-                  type={'date'}
-                ></input>
-              </div>
-
               <div>
                 <TambahItemBarangFaktur data={data} setData={setData} />
               </div>

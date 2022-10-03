@@ -26,6 +26,10 @@ export default function TambahItemBarang({ data, setData }) {
       cell: (info) => info.getValue(),
       header: <span>Harga</span>,
     }),
+    columnsHelper.accessor('discount', {
+      cell: (info) => info.getValue(),
+      header: <span>Diskon</span>,
+    }),
     columnsHelper.accessor('total', {
       cell: (info) => info.getValue(),
       header: <span>Total</span>,
@@ -47,17 +51,17 @@ export default function TambahItemBarang({ data, setData }) {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center my-10 w-full overflow-auto'>
+      <div className='flex flex-col items-center justify-center my-10 w-full '>
         <p className='text-xl font-primary '>Item Barang</p>
 
         {/* Add Transaksi */}
-        <div className=' bg-white p-3 border border-gray-202 '>
+        <div className=' bg-white p-3 border border-gray-202 w-full overflow-auto'>
           <form className='w-full mt-10' onSubmit={handleSubmit(onSubmit)}>
             <table className='table-auto w-full text-center'>
               <thead className='border border-gray-200 px-2 py-2 bg-gray-200'>
                 <tr>
-                  <th>Items</th>
-                  <th>Deskripsi</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
                   <th>Quantity</th>
                   <th>Satuan</th>
                   <th>Discount</th>
@@ -77,19 +81,24 @@ export default function TambahItemBarang({ data, setData }) {
                       })}
                     >
                       <option>Pilih barang</option>
+                      <option> -100123-</option>
+                      <option>-1023412-</option>
                     </select>
                   </td>
                   <td>
-                    <input
+                    <select
                       className=' px-4 py-2 mx-2 bg-gray-200'
-                      id='satuan'
-                      name='satuan'
-                      placeholder='Auto terisi saat user memilih barang'
-                      {...register('satuan', {
+                      id='kode-barang'
+                      name='kode-barang'
+                      {...register('kode-barang', {
                         required: true,
                         maxLength: 20,
                       })}
-                    ></input>
+                    >
+                      <option>Pilih barang</option>
+                      <option> Plastik</option>
+                      <option>Polymer</option>
+                    </select>
                   </td>
                   <td>
                     <input
@@ -107,6 +116,17 @@ export default function TambahItemBarang({ data, setData }) {
                       id='jumlah'
                       name='jumlah'
                       {...register('jumlah', {
+                        required: true,
+                        maxLength: 20,
+                      })}
+                    ></input>
+                  </td>
+                  <td>
+                    <input
+                      className='py-2 bg-gray-100'
+                      id='harga'
+                      name='harga'
+                      {...register('harga', {
                         required: true,
                         maxLength: 20,
                       })}

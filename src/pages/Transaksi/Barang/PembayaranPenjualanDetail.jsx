@@ -121,11 +121,10 @@ export default function PembayaranPenjualanDetail() {
             Pengisian Pembayaran
           </h2>
           <p className='text-center font-bold text-xl mt-5'>
-            No Transaksi : 1234567
+            No SO : SO-0110202203
           </p>
-          <p className='text-center font-bold text-xl'>No PO : 1234567</p>
           <p className='text-center font-bold text-xl'>
-            No Surat Jalan : 1234567
+            No Surat Jalan : SJ-0110202203
           </p>
           <p className='text-center font-bold text-xl'>No Faktur : 1234567</p>
           <p className='text-center font-bold text-xl'>

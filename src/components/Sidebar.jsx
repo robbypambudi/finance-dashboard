@@ -90,6 +90,11 @@ const navigation = [
             href: '/retur/penjualan',
             dropdown: false,
           },
+          {
+            name: 'History Penjualan',
+            href: '/history/penjualan',
+            dropdown: false,
+          },
         ],
         icon: GrTransaction,
       },
@@ -147,7 +152,8 @@ const navigation = [
         href: '/laporan/transaksi',
         icon: GrTransaction,
         current: false,
-        dropdown: false,
+        dropdown: true,
+        dropdownList: [],
       },
       {
         name: 'Laporan Laba Rugi',

@@ -9,8 +9,7 @@ export default function PembayaranPembelian() {
 
   const DATAITEMS = [
     {
-      no_transaksi: '123456',
-      no_po: '12314567312',
+      no_po: 'PO-0110202203',
       tanggal_pengiriman: '9 April 2022',
       tanggal_sampai: '20 April 2022',
       vendor: 'PT Jaya Bakti Indonesia',
@@ -22,8 +21,7 @@ export default function PembayaranPembelian() {
   ];
   const DATAITEMS3 = [
     {
-      no_transaksi: '123456',
-      no_po: '12314567312',
+      no_po: 'PO-0110202203',
       tanggal_pembuatan: '9 April 2022',
       tanggal_pengiriman: '9 April 2022',
       tanggal_sampai: '20 April 2022',
@@ -39,7 +37,7 @@ export default function PembayaranPembelian() {
 
   const DATAITEMS2 = [
     {
-      no_po: 'PO-12456',
+      no_po: 'PO-0110202203',
       no_transaksi: '12342156',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 22.000.000',
@@ -52,10 +50,6 @@ export default function PembayaranPembelian() {
   ];
 
   const ListPenerimaanBarang = [
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => info.getValue(),
-      header: <span>No Transaksi</span>,
-    }),
     columnsHelper.accessor('no_po', {
       cell: (info) => info.getValue(),
       header: <span>No PO</span>,
@@ -107,10 +101,6 @@ export default function PembayaranPembelian() {
     }),
   ];
   const ListBelumSelesaiBayar = [
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => info.getValue(),
-      header: <span>No Transaksi</span>,
-    }),
     columnsHelper.accessor('no_po', {
       cell: (info) => info.getValue(),
       header: <span>No PO</span>,
@@ -175,10 +165,6 @@ export default function PembayaranPembelian() {
   ];
 
   const HistoryPenerimaanBarang = [
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
-    }),
     columnsHelper.accessor('no_po', {
       cell: (info) => info.getValue(),
       header: <span>No PO</span>,
@@ -235,7 +221,7 @@ export default function PembayaranPembelian() {
 
   const dataHistory = [
     {
-      no_transaksi: '123456',
+      no_po: 'PO-0110202203',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: false,

@@ -54,6 +54,10 @@ export default function PembayaranPembelianDetail() {
       cell: (info) => info.getValue(),
       header: <span>Harga</span>,
     }),
+    columnsHelper.accessor('dp', {
+      cell: (info) => info.getValue(),
+      header: <span>DP</span>,
+    }),
     columnsHelper.accessor('sudah_bayar', {
       cell: (info) => info.getValue(),
       header: <span>Dibayar</span>,
@@ -94,9 +98,10 @@ export default function PembayaranPembelianDetail() {
     {
       id_pembayaran: '123456',
       bank: 'BCA',
-      nominal: 'Rp. 500.000',
+      nominal: 'Rp. 10.000.000',
       tanggal: '9 April 2010',
       sudah_bayar: '500.000',
+      dp: '500.000',
       sisa_bayar: '9.500.000',
       // discount: '1%',
       bukti_bayar: '/asdasadafafeaf/afae/fa/feaf/aef/ae',
@@ -118,15 +123,12 @@ export default function PembayaranPembelianDetail() {
             Pengisian Pembayaran
           </h2>
           <p className='text-center font-bold text-xl mt-5'>
-            No Transaksi : 1234567
-          </p>
-          <p className='text-center font-bold text-xl'>No PO : 1234567</p>
-          <p className='text-center font-bold text-xl'>
-            No Surat Jalan : 1234567
+            No PO : PO-0110202203
           </p>
           <p className='text-center font-bold text-xl'>
-            No Pembayaran : 1234567
+            No Surat Jalan : SJ-0110202203
           </p>
+          <p className='text-center font-bold text-xl'>No Faktur : 1234567</p>
           <p className='text-center font-bold text-xl'>
             Nominal (Termasuk Pajak): Rp. 200.000.00
           </p>

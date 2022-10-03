@@ -146,8 +146,8 @@ export default function DetailSuratJalan() {
           <h2 className='text-center font-bold text-3xl'>
             Pengisian Surat Jalan
           </h2>
-          <p className='text-center  text-base'>No Transaksi : 1234567</p>
-          <p className='text-center  text-base'>No PO : PO-1234567</p>
+          <p className='text-center  text-base'>No PO : PO-0110202201</p>
+          {/* <p className='text-center  text-base'>No PO : PO-1234567</p> */}
           <div className='flex flex-center justify-center my-4 gap-x-4'>
             <button className='px-4 py-2 bg-green-500 rounded '>
               Diterima

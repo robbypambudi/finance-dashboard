@@ -8,25 +8,17 @@ export default function HistoryPembelian() {
   const navigate = useNavigate();
 
   const LISTSO = [
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>No Transaksi</span>,
+    columnsHelper.accessor('no_po', {
+      cell: (info) => <p className='w-[150px]'>{info.getValue()}</p>,
+      header: <span>No PO</span>,
     }),
     columnsHelper.accessor('no_suratjalan', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      cell: (info) => <p className='w-[150px]'>{info.getValue()}</p>,
       header: <span>No Surat Jalan</span>,
-    }),
-    columnsHelper.accessor('no_po', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>No PO</span>,
     }),
     columnsHelper.accessor('supplier', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Supplier</span>,
-    }),
-    columnsHelper.accessor('tanggal_pembayaran', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>Tanggal Pembayaran</span>,
     }),
     columnsHelper.accessor('tanggal_pengiriman', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
@@ -35,6 +27,10 @@ export default function HistoryPembelian() {
     columnsHelper.accessor('tanggal_sampai', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Tanggal Sampai</span>,
+    }),
+    columnsHelper.accessor('tanggal_jatuh_tempo', {
+      cell: (info) => <p className='w-[150px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Jatuh Tempo</span>,
     }),
     // columnsHelper.accessor('nominal', {
     //   cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
@@ -67,34 +63,34 @@ export default function HistoryPembelian() {
   const HISTORY = [
     {
       no_transaksi: '1234',
-      no_suratjalan: 'SJ-1234',
-      no_po: 'PO-1234',
+      no_suratjalan: 'SJ-0110202202',
+      no_po: 'PO-0110202202',
       supplier: 'PT Briand Perkasa',
-      tanggal_pembayaran: '12 Januari 2022',
-      tanggal_pengiriman: '10 Januari 2022',
-      tanggal_sampai: '20 Januari 2022',
+      tanggal_pengiriman: '12 April 2022',
+      tanggal_sampai: '22 April 2022',
+      tanggal_jatuh_tempo: '22 April 2022',
       nominal: 'Rp 200000',
       catatan: 'On Going',
     },
     {
       no_transaksi: '1234',
-      no_suratjalan: 'SJ-1234',
-      no_po: 'PO-1234',
+      no_suratjalan: 'SJ-0110202203',
+      no_po: 'PO-0110202203',
       supplier: 'PT Briand Perkasa',
-      tanggal_pembayaran: '12 Januari 2022',
-      tanggal_pengiriman: '10 Januari 2022',
-      tanggal_sampai: '20 Januari 2022',
+      tanggal_pengiriman: '12 April 2022',
+      tanggal_sampai: '22 April 2022',
+      tanggal_jatuh_tempo: '22 April 2022',
       nominal: 'Rp 200000',
       catatan: 'Selesai',
     },
     {
       no_transaksi: '1234',
-      no_suratjalan: 'SJ-1234',
-      no_po: 'PO-1234',
+      no_suratjalan: 'SJ-0110202204',
+      no_po: 'PO-0110202204',
       supplier: 'PT Briand Perkasa',
-      tanggal_pembayaran: '12 Januari 2022',
-      tanggal_pengiriman: '10 Januari 2022',
-      tanggal_sampai: '20 Januari 2022',
+      tanggal_pengiriman: '12 April 2022',
+      tanggal_sampai: '22 April 2022',
+      tanggal_jatuh_tempo: '22 April 2022',
       nominal: 'Rp 200000',
       catatan: 'Selesai',
     },

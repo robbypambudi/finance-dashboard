@@ -39,6 +39,7 @@ import ReturPenjualan from '../pages/Transaksi/Barang/Penjualan/ReturPenjualan';
 import ReturPenjualanDetail from '../pages/Transaksi/Barang/Penjualan/ReturPenjualanDetail';
 import ProductionOrder from '../pages/Transaksi/Barang/Penjualan/ProductionOrder';
 import ProductionOrderDetail from '../pages/Transaksi/Barang/Penjualan/FakturPenjualanDetail';
+import HistoryPenjualan from '../pages/Transaksi/Barang/Penjualan/HistoryPenjualan';
 
 const routes = [
   {
@@ -205,6 +206,15 @@ const routes = [
     element: (
       <AuthRoute>
         <HistoryPembelian />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/history/penjualan',
+    element: (
+      <AuthRoute>
+        <HistoryPenjualan />
       </AuthRoute>
     ),
     visible: true,

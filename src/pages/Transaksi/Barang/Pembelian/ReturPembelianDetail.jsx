@@ -115,14 +115,13 @@ export default function ReturPembelianDetail() {
             Pengisian Retur Pembelian
           </h2>
           <p className='text-center font-bold text-xl mt-5'>
-            No Transaksi : 1234567
+            No PO : PO-0110202203
           </p>
           <p className='text-center font-bold text-xl mt-5'>
-            No Faktur : 1234567
+            No Faktur : 123456
           </p>
-          <p className='text-center font-bold text-xl'>No PO : 1234567</p>
           <p className='text-center font-bold text-xl'>
-            No Surat Jalan : 1234567
+            No Surat Jalan : SJ-0110202203
           </p>
           <p className='text-center font-bold text-xl'>
             Nominal (Termasuk Pajak): Rp. 200.000.00
@@ -143,7 +142,7 @@ export default function ReturPembelianDetail() {
 
             {/* Detail Informasi Surat Jalan */}
 
-            <div className='bg-white p-3 mt-10 md:w-[80%] lg:w-[80%] 2xl:w-1/2 border border-gray-200 shadow-lg'>
+            <div className='bg-white p-3 mt-10 w-full border border-gray-200 shadow-lg'>
               <p className='text-center font-bold text-2xl'>
                 Detail Informasi Surat Jalan
               </p>
@@ -232,7 +231,7 @@ export default function ReturPembelianDetail() {
             {/* Detail Item Barang */}
             <div className='bg-white mt-5 p-2 border border-gray-200 shadow'>
               <p className='text-center font-bold text-2xl'>
-                Detail Informasi Pesanan Barang
+                Detail Informasi Faktur Barang
               </p>
               <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
             </div>

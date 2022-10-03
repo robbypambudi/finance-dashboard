@@ -3,10 +3,10 @@ export const Jenis_Transaksi = [
     name: 'Pengeluaran  Gudang',
     value: 'pengeluaran_gudang',
   },
-  {
-    name: 'Pengeluaran ATK',
-    value: 'pengeluaran_gudang',
-  },
+  // {
+  //   name: 'Pengeluaran ATK',
+  //   value: 'pengeluaran_gudang',
+  // },
   {
     name: 'Pengeluaran Kantor',
     value: 'pengeluaran_kantor',

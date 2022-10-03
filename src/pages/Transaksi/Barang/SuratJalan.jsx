@@ -9,11 +9,11 @@ export default function SuratJalan() {
 
   const DATAITEMS = [
     {
-      no_transaksi: '123456',
+      no_transaksi: 'PO-0110202201',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: false,
-      tanggal: '9 April 2022',
+      tanggal: '12 April 2022',
       catatan: 'Anak Perusahaan dari PT Waskita',
     },
   ];
@@ -21,7 +21,7 @@ export default function SuratJalan() {
   const ListPenerimaanBarang = [
     columnsHelper.accessor('no_transaksi', {
       cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
+      header: <span>No PO</span>,
     }),
     columnsHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
@@ -62,7 +62,7 @@ export default function SuratJalan() {
   const HistoryPenerimaanBarang = [
     columnsHelper.accessor('no_transaksi', {
       cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
+      header: <span>No PO</span>,
     }),
     columnsHelper.accessor('tanggal_pengiriman', {
       cell: (info) => info.getValue(),
@@ -127,23 +127,23 @@ export default function SuratJalan() {
   ];
   const dataHistory = [
     {
-      no_transaksi: '123456',
+      no_transaksi: 'PO-0110202202',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
-      status: 'Pandding Payment',
-      tanggal_pengiriman: '22 September 2022',
-      tanggal_sampai: '13 April 2022',
+      status: 'Dikirim',
+      tanggal_pengiriman: '12 April 2022',
+      tanggal_sampai: '22 April 2022',
       catatan: 'Anak Perusahaan dari PT ',
     },
   ];
   const dataHistory2 = [
     {
-      no_transaksi: '1234512316',
+      no_transaksi: 'PO-0110202203',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
-      status: 'Selesai',
-      tanggal_pengiriman: '22 September 2022',
-      tanggal_sampai: '13 April 2022',
+      status: 'Diterima',
+      tanggal_pengiriman: '12 April 2022',
+      tanggal_sampai: '22 April 2022',
       catatan: 'Anak Perusahaan dari PT ',
     },
   ];

@@ -9,7 +9,7 @@ export default function PengirimanPesanan() {
 
   const DATAITEMS = [
     {
-      no_transaksi: '123456',
+      no_so: 'SO-0110202201',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: false,
@@ -19,9 +19,9 @@ export default function PengirimanPesanan() {
   ];
 
   const ListPenerimaanBarang = [
-    columnsHelper.accessor('no_transaksi', {
+    columnsHelper.accessor('no_so', {
       cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
+      header: <span>No SO</span>,
     }),
     columnsHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
@@ -56,9 +56,9 @@ export default function PengirimanPesanan() {
     }),
   ];
   const HistoryPenerimaanBarang = [
-    columnsHelper.accessor('no_transaksi', {
+    columnsHelper.accessor('no_so', {
       cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
+      header: <span>No SO</span>,
     }),
     columnsHelper.accessor('tanggal_pengiriman', {
       cell: (info) => info.getValue(),
@@ -72,7 +72,6 @@ export default function PengirimanPesanan() {
       cell: (info) => info.getValue(),
       header: <span>Pembeli</span>,
     }),
-
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
       header: <span>Catatan</span>,
@@ -119,7 +118,7 @@ export default function PengirimanPesanan() {
   ];
   const dataHistory = [
     {
-      no_transaksi: '123456',
+      no_so: 'SO-0110202202',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: 'Pandding Payment',
@@ -130,7 +129,7 @@ export default function PengirimanPesanan() {
   ];
   const dataHistory2 = [
     {
-      no_transaksi: '1234512316',
+      no_so: 'SO-0110202201',
       vendor: 'PT Jaya Bakti Indonesia',
       nominal: 'Rp. 12.000.000',
       status: 'Selesai',

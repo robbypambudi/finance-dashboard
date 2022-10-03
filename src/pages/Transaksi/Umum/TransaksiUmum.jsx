@@ -18,9 +18,13 @@ import { FaEdit, FaEye, FaTrash } from 'react-icons/fa';
 import { AiOutlinePrinter } from 'react-icons/ai';
 import SelectInput from '../../../components/SelectInput';
 import Table from '../../../components/Table';
+import { useState } from 'react';
 export default function TransaksiUmum() {
   const columnHelper = createColumnHelper();
   const data = useMemo(() => Data_Transaksi, [Data_Transaksi]);
+
+  const [value, setValue] = useState('');
+
   const columns = [
     columnHelper.accessor('id', {
       cell: (info) => info.getValue(),
@@ -99,6 +103,7 @@ export default function TransaksiUmum() {
                   <select
                     className='bg-gray-100 px-4 py-2 rounded-md border border-gray-400 shadow'
                     type='select'
+                    onChange={(e) => setValue(e.target.value)}
                   >
                     <option>Jenis Transaksi</option>
                     {Jenis_Transaksi.map((jenis, index) => {
@@ -111,7 +116,31 @@ export default function TransaksiUmum() {
                   </select>
                 </div>
                 <div className='flex flex-col'>
-                  <label className='my-2'>Diambil Dari (Kredit) </label>
+                  <label className='my-2'>
+                    {value === 'pemasukan' ? 'Diterima Dari' : 'Untuk Biaya'}
+                  </label>
+                  <select
+                    className='bg-gray-100 px-4 py-2 rounded-md border border-gray-400 shadow'
+                    type='select'
+                  >
+                    {value === 'pemasukan' ? (
+                      <>
+                        <option>Rekening Bank</option>
+                      </>
+                    ) : (
+                      <>
+                        <option>Alat Tulis Kantor(ATK)</option>
+                        <option>Iuran Warga</option>
+                        <option>Kebutuhan Dapur</option>
+                        <option>Transportasi</option>
+                      </>
+                    )}
+                  </select>
+                </div>
+                <div className='flex flex-col'>
+                  <label className='my-2'>
+                    {value === 'pemasukan' ? 'Disimpan ke ' : 'Diambil Dari'}
+                  </label>
                   <select
                     className='bg-gray-100 px-4 py-2 rounded-md border border-gray-400 shadow'
                     type='select'
@@ -141,11 +170,16 @@ export default function TransaksiUmum() {
 
                 <div className='flex flex-col'>
                   <label className='my-2'>Kontak Staff</label>
-                  <input
+                  <select
                     className='bg-gray-100 px-4 py-2  rounded-md border border-gray-400 shadow'
                     placeholder='Kontak'
                     type='text'
-                  />
+                  >
+                    <option>Kontak 1 </option>
+                    <option>Kontak 2 </option>
+                    <option>Kontak 3 </option>
+                    <option>Kontak 4 </option>
+                  </select>
                 </div>
                 <div className='flex items-center justify-center mt-6'>
                   <button className='bg-blue-500 px-6 py-2 rounded-xl text-white hover:bg-gray-500'>

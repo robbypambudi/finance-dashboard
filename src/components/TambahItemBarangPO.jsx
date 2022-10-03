@@ -51,7 +51,7 @@ export default function TambahItemBarangPO({ data, setData }) {
                   <th>Kode Barang</th>
                   <th>Nama Barang</th>
                   <th>Satuan</th>
-                  <th>Jumlah</th>
+                  <th>Quantity</th>
                 </tr>
               </thead>
               <tbody className='text-center'>

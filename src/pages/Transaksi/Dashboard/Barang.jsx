@@ -8,21 +8,13 @@ export default function DashboardBarang() {
   const navigate = useNavigate();
   const columnHelper = createColumnHelper();
   const LIST_HISTORY_BARANG = [
-    columnHelper.accessor('id_transaksi', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>No Transaksi</span>,
-    }),
     columnHelper.accessor('no_po', {
-      cell: (info) => info.getValue(),
-      header: <span>Kode PO</span>,
+      cell: (info) => <p className='w-[150px] '>{info.getValue()}</p>,
+      header: <span className='w-[150px]'>Kode PO</span>,
     }),
     columnHelper.accessor('no_suratjalan', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      cell: (info) => <p className='w-[150px]'>{info.getValue()}</p>,
       header: <span>No Surat Jalan</span>,
-    }),
-    columnHelper.accessor('tanggal_pembayaran', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>Tanggal Pembayaran</span>,
     }),
     columnHelper.accessor('tanggal_pengiriman', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
@@ -31,6 +23,10 @@ export default function DashboardBarang() {
     columnHelper.accessor('tanggal_sampai', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Tanggal Sampai</span>,
+    }),
+    columnHelper.accessor('tanggal_pembayaran', {
+      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+      header: <span>Tanggal Pembayaran</span>,
     }),
     columnHelper.accessor('jenis', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
@@ -47,7 +43,7 @@ export default function DashboardBarang() {
     }),
     columnHelper.accessor('supplier', {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>Supplier</span>,
+      header: <span>Kontak</span>,
     }),
     columnHelper.accessor('catatan', {
       cell: (info) => <p className='w-[300px]'>{info.getValue()}</p>,
@@ -128,7 +124,7 @@ export default function DashboardBarang() {
 
           <div className='bg-white p-3 mt-4 rounded border border-gray-400 overflow-auto '>
             <h2 className='text-center text-2xl font-bold'>
-              List Transaksi P.O / S.O
+              History Transaksi P.O/ S.O
             </h2>
             <Table columns={LIST_HISTORY_BARANG} data={DATA_HISTORY_BARANG} />
           </div>
