@@ -60,15 +60,16 @@ const navigation = [
         dropdown: true,
         dropdownList: [
           {
-            name: 'Pesanan Penjualan',
+            name: 'Sales Order',
             href: '/pesanan/penjualan',
             dropdown: false,
           },
           {
-            name: 'Pembuatan PO',
-            href: '/po',
+            name: 'Production Order',
+            href: '/production/order',
             dropdown: false,
           },
+
           {
             name: 'Pengiriman Pesanan',
             href: '/pengiriman/barang',
@@ -84,6 +85,11 @@ const navigation = [
             href: '/pembayaran/penjualan',
             dropdown: false,
           },
+          {
+            name: 'Retur Penjualan',
+            href: '/retur/penjualan',
+            dropdown: false,
+          },
         ],
         icon: GrTransaction,
       },
@@ -93,7 +99,7 @@ const navigation = [
         dropdown: true,
         dropdownList: [
           {
-            name: 'Pesanan Pembelian',
+            name: 'Purchese Order',
             href: '/pesanan/pembelian',
             dropdown: false,
           },
@@ -153,6 +159,27 @@ const navigation = [
       {
         name: 'Laporan Hutang Piutang',
         href: '/laporan/hutang_piutang',
+        icon: GrTransaction,
+        current: false,
+        dropdown: false,
+      },
+      {
+        name: 'Laporan Pengiriman',
+        href: '/laporan/pengiriman',
+        icon: GrTransaction,
+        current: false,
+        dropdown: false,
+      },
+      {
+        name: 'Laporan Pengiriman',
+        href: '/laporan/pengiriman',
+        icon: GrTransaction,
+        current: false,
+        dropdown: false,
+      },
+      {
+        name: 'Laporan Pembayaran',
+        href: '/laporan/pembayaran',
         icon: GrTransaction,
         current: false,
         dropdown: false,

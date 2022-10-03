@@ -258,15 +258,7 @@ export default function PengirimanPesananDetail() {
               Nominal (Termasuk Pajak) : 1234512123
             </p>
           </div>
-          <div className='flex flex-col justify-center items-center mt-4'>
-            <select className='w-64 px-4 py-2'>
-              <option>Pilih PO</option>
-              <option>PO-123456</option>
-              <option>PO-123456</option>
-              <option>PO-123456</option>
-              <option>PO-123456</option>
-            </select>
-          </div>
+
           {/* Export Excel */}
 
           {isDownload && (

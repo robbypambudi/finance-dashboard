@@ -10,7 +10,7 @@ import NeracaSaldo from '../pages/Laporan/NeracaSaldo';
 import LaporanTransaksi from '../pages/Laporan/Transaksi';
 import StokBarang from '../pages/Stok/Barang';
 import FakturPembelian from '../pages/Transaksi/Barang/Pembelian/FakturPembelian';
-import FakturPenjualan from '../pages/Transaksi/Barang/FakturPenjualan';
+import FakturPenjualan from '../pages/Transaksi/Barang/Penjualan/FakturPenjualan';
 import SuratJalan from '../pages/Transaksi/Barang/SuratJalan';
 import PengirimanBarang from '../pages/Transaksi/Barang/PengirimanPesanan';
 import PesananPembelian from '../pages/Transaksi/Barang/Pembelian/PesananPembelian';
@@ -30,11 +30,15 @@ import HistoryPembelian from '../pages/Transaksi/Barang/Pembelian/HistoryPembeli
 import FakturPembelianDetail from '../pages/Transaksi/Barang/Pembelian/FakturPembelianDetail';
 import PengirimanPesananDetail from '../pages/Transaksi/Barang/PengirimanPesananDetail';
 import PembayaranPenjualan from '../pages/Transaksi/Barang/PembayaranPenjualan';
-import FakturPenjualanDetail from '../pages/Transaksi/Barang/FakturPenjualanDetail';
+import FakturPenjualanDetail from '../pages/Transaksi/Barang/Penjualan/FakturPenjualanDetail';
 import PembayaranPenjualanDetail from '../pages/Transaksi/Barang/PembayaranPenjualanDetail';
 import SalesOrder from '../pages/Transaksi/Barang/SalesOrder';
 import ReturPembelian from '../pages/Transaksi/Barang/Pembelian/ReturPembelian';
 import ReturPembelianDetail from '../pages/Transaksi/Barang/Pembelian/ReturPembelianDetail';
+import ReturPenjualan from '../pages/Transaksi/Barang/Penjualan/ReturPenjualan';
+import ReturPenjualanDetail from '../pages/Transaksi/Barang/Penjualan/ReturPenjualanDetail';
+import ProductionOrder from '../pages/Transaksi/Barang/Penjualan/ProductionOrder';
+import ProductionOrderDetail from '../pages/Transaksi/Barang/Penjualan/FakturPenjualanDetail';
 
 const routes = [
   {
@@ -110,6 +114,24 @@ const routes = [
     element: (
       <AuthRoute>
         <TransaksiPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/production/order',
+    element: (
+      <AuthRoute>
+        <ProductionOrder />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/production/order/:id',
+    element: (
+      <AuthRoute>
+        <ProductionOrderDetail />
       </AuthRoute>
     ),
     visible: true,
@@ -269,6 +291,24 @@ const routes = [
     visible: true,
   },
   {
+    path: '/retur/penjualan',
+    element: (
+      <AuthRoute>
+        <ReturPenjualan />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/retur/penjualan/:id',
+    element: (
+      <AuthRoute>
+        <ReturPenjualanDetail />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
     path: '/pengiriman/barang',
     element: (
       <AuthRoute>
@@ -307,6 +347,15 @@ const routes = [
   },
   {
     path: '/transaksi/barang',
+    element: (
+      <AuthRoute>
+        <TransaksiBarang />
+      </AuthRoute>
+    ),
+    visible: true,
+  },
+  {
+    path: '/production/order',
     element: (
       <AuthRoute>
         <TransaksiBarang />

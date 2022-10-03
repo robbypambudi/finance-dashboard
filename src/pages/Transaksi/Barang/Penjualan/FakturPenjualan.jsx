@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
-import Table from '../../../components/Table';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
+import Table from '../../../../components/Table';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 
 export default function HistoryPembelian() {
   const columnsHelper = createColumnHelper();
@@ -36,10 +36,10 @@ export default function HistoryPembelian() {
       cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
       header: <span>Tanggal Sampai</span>,
     }),
-    columnsHelper.accessor('nominal', {
-      cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
-      header: <span>Nominal</span>,
-    }),
+    // columnsHelper.accessor('nominal', {
+    //   cell: (info) => <p className='w-[100px]'>{info.getValue()}</p>,
+    //   header: <span>Nominal</span>,
+    // }),
     columnsHelper.accessor('catatan', {
       cell: (info) => <p className='w-[300px]'>{info.getValue()}</p>,
       header: <span>Catatan</span>,
@@ -54,7 +54,7 @@ export default function HistoryPembelian() {
                 className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
                 onClick={() => navigate(`/faktur/penjualan/${href}`)}
               >
-                Lihat Invoice
+                Buat Invoice
               </button>
             </div>
           </>
@@ -104,7 +104,7 @@ export default function HistoryPembelian() {
       <DashboardShellAdmin>
         <div className='p-10'>
           <h2 className='text-center font-bold text-3xl'>
-            List Invoice Penjualan Barang
+            Pembuatan Faktur Penjualan Barang
           </h2>
 
           <div className='mt-6 p-3 bg-white rounded border border-gray-200 shadow overflow-auto'>

@@ -1,9 +1,9 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
-import Table from '../../../components/Table';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
+import Table from '../../../../components/Table';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 
-export default function PengirimanPesanan() {
+export default function ProductionOrder() {
   const columnsHelper = createColumnHelper();
   const navigate = useNavigate();
 
@@ -29,40 +29,26 @@ export default function PengirimanPesanan() {
     }),
     columnsHelper.accessor('vendor', {
       cell: (info) => info.getValue(),
-      header: <span>Pembeli</span>,
+      header: <span>Vendor</span>,
     }),
+    // columnsHelper.accessor('nominal', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Nominal</span>,
+    // }),
 
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
       header: <span>Catatan</span>,
     }),
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => {
-        const href = info.getValue();
-        return (
-          <>
-            <div className='flex flex-col gap-y-2'>
-              <button
-                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
-                onClick={() => navigate(`/pengiriman/barang/${href}`)}
-              >
-                Buat
-              </button>
-            </div>
-          </>
-        );
-      },
-      header: <span>Aksi</span>,
-    }),
   ];
   const HistoryPenerimaanBarang = [
     columnsHelper.accessor('no_transaksi', {
       cell: (info) => info.getValue(),
-      header: <span>No_Transaksi</span>,
+      header: <span>No Transaksi</span>,
     }),
     columnsHelper.accessor('tanggal_pengiriman', {
       cell: (info) => info.getValue(),
-      header: <span>Tanggal Pengiriman</span>,
+      header: <span>Tanggal Pemesanan</span>,
     }),
     columnsHelper.accessor('tanggal_sampai', {
       cell: (info) => info.getValue(),
@@ -70,8 +56,12 @@ export default function PengirimanPesanan() {
     }),
     columnsHelper.accessor('vendor', {
       cell: (info) => info.getValue(),
-      header: <span>Pembeli</span>,
+      header: <span>Vendor</span>,
     }),
+    // columnsHelper.accessor('nominal', {
+    //   cell: (info) => info.getValue(),
+    //   header: <span>Nominal</span>,
+    // }),
 
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
@@ -79,31 +69,7 @@ export default function PengirimanPesanan() {
     }),
     columnsHelper.accessor('status', {
       cell: (info) => info.getValue(),
-      header: <span>Status Pengiriman</span>,
-    }),
-    columnsHelper.accessor('no_transaksi', {
-      cell: (info) => {
-        const href = info.getValue();
-        return (
-          <>
-            <div className='flex flex-col gap-y-2'>
-              <button
-                className='bg-blue-500 text-white font-bold px-2 py-1 rounded '
-                onClick={() => navigate(`/pengiriman/barang/${href}`)}
-              >
-                Surat Jalan
-              </button>
-              <button
-                className='bg-green-500 text-white font-bold px-2 py-1 rounded '
-                onClick={() => navigate(`/pembayaran/barang/${href}`)}
-              >
-                Pembayaran
-              </button>
-            </div>
-          </>
-        );
-      },
-      header: <span>Aksi</span>,
+      header: <span>Status Produksi</span>,
     }),
   ];
 
@@ -144,25 +110,28 @@ export default function PengirimanPesanan() {
       <DashboardShellAdmin>
         <div className='p-10'>
           <h2 className='text-center text-3xl font-bold my-3'>
-            Pengisian Surat Jalan
+            Production Order
           </h2>
+          <div className='my-2'>
+            <button className='bg-green-500 px-4 py-2 rounded'>
+              Buat Production Order
+            </button>
+          </div>
 
           <div className='bg-white p-5 rounded-lg'>
-            <p className='text-center text-lg font-bold'>
-              List Penjualan Belum Isi Surat Jalan
-            </p>
+            <p className='text-center text-lg font-bold'>List Production</p>
             <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
           </div>
 
           <div className='bg-yellow-500 p-5 rounded-lg mt-8'>
             <p className='text-center text-lg font-bold'>
-              List Penjualan Dalam Pengiriman
+              List Production Dalam Pengerjaan
             </p>
             <Table data={dataHistory} columns={HistoryPenerimaanBarang} />
           </div>
           <div className='bg-blue-500 p-5 rounded-lg mt-8'>
             <p className='text-center text-lg font-bold'>
-              List Penjualan Barang Selesai Dikirm
+              List Production Selesai
             </p>
             <Table data={dataHistory2} columns={HistoryPenerimaanBarang} />
           </div>

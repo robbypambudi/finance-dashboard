@@ -4,6 +4,10 @@ export const Jenis_Transaksi = [
     value: 'pengeluaran_gudang',
   },
   {
+    name: 'Pengeluaran ATK',
+    value: 'pengeluaran_gudang',
+  },
+  {
     name: 'Pengeluaran Kantor',
     value: 'pengeluaran_kantor',
   },
@@ -66,7 +70,15 @@ export const Jenis_Debit = [
 
 export const Jenis_Kredit = [
   {
-    name: 'Kas (1-10001)',
+    name: 'Kas Kecil',
+    value: '1-10001',
+  },
+  {
+    name: 'Kas Besar',
+    value: '1-10001',
+  },
+  {
+    name: 'Kasbon',
     value: '1-10001',
   },
   {

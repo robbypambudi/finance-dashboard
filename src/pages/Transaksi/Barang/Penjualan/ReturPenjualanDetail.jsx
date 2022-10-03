@@ -2,12 +2,19 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Table from '../../../components/Table';
-import DashboardShellAdmin from '../../../layouts/admin/DashboarsShellAdmin';
+import Table from '../../../../components/Table';
+import TambahItemBarangFaktur from '../../../../components/TambahItemBarangFaktur';
+import TambahItemBarangRetur from '../../../../components/TambahItemBarangRetur';
+import DashboardShellAdmin from '../../../../layouts/admin/DashboarsShellAdmin';
 
-export default function FakturPenjualanDetail() {
+export default function ReturPenjualanDetail() {
   const [isDownload, setIsDownload] = useState(true);
+  const [data, setData] = useState([]);
   const navigate = useNavigate();
+
+  const pembayaran = () => {
+    return navigate('/pembayaran/penjualan');
+  };
   const { id } = useParams();
   const columnsHelper = createColumnHelper();
   const ListPenerimaanBarang = [
@@ -40,7 +47,7 @@ export default function FakturPenjualanDetail() {
   const HistoryPembayaranSebelumnya = [
     columnsHelper.accessor('id_pembayaran', {
       cell: (info) => info.getValue(),
-      header: <span>Kode Barang</span>,
+      header: <span>Kode Faktur</span>,
     }),
     columnsHelper.accessor('bank', {
       cell: (info) => info.getValue(),
@@ -48,11 +55,11 @@ export default function FakturPenjualanDetail() {
     }),
     columnsHelper.accessor('tanggal', {
       cell: (info) => info.getValue(),
-      header: <span>Tanggal Pembayaran</span>,
+      header: <span>Tanggal Pembuatan</span>,
     }),
     columnsHelper.accessor('nominal', {
       cell: (info) => info.getValue(),
-      header: <span>Harga</span>,
+      header: <span>Total Harga</span>,
     }),
     columnsHelper.accessor('catatan', {
       cell: (info) => info.getValue(),
@@ -103,12 +110,15 @@ export default function FakturPenjualanDetail() {
   return (
     <>
       <DashboardShellAdmin>
-        <div className='p-10'>
+        <div className='p-4'>
           <h2 className='text-center font-bold text-3xl'>
-            Faktur Pembayaran Penjualan
+            Pengisian Retur Pembelian
           </h2>
           <p className='text-center font-bold text-xl mt-5'>
             No Transaksi : 1234567
+          </p>
+          <p className='text-center font-bold text-xl mt-5'>
+            No Faktur : 1234567
           </p>
           <p className='text-center font-bold text-xl'>No PO : 1234567</p>
           <p className='text-center font-bold text-xl'>
@@ -192,21 +202,37 @@ export default function FakturPenjualanDetail() {
                   type={'date'}
                 ></input>
               </div>
+
+              <div>
+                <TambahItemBarangRetur data={data} setData={setData} />
+              </div>
+
+              <div className='flex items-center justify-center gap-x-5 mt-4'>
+                <button
+                  className='px-4 py-2 bg-green-500 text-white rounded-lg'
+                  onClick={() => navigate('/pesanan/pembelian')}
+                >
+                  Kembali
+                </button>
+                <button
+                  className='px-4 py-2 bg-blue-500 text-white rounded-lg'
+                  onClick={() => pembayaran()}
+                >
+                  Simpan
+                </button>
+                <button
+                  className='px-4 py-2 bg-red-500 text-white rounded-lg'
+                  onClick={() => navigate('/pembayaran/pembelian')}
+                >
+                  Selanjutnya
+                </button>
+              </div>
             </div>
 
             {/* Detail Item Barang */}
-            <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
+            <div className='bg-white mt-5 p-2 border border-gray-200 shadow'>
               <p className='text-center font-bold text-2xl'>
-                Detail Pembayaran Sebelumnya
-              </p>
-              <Table
-                data={PEMBAYARANSEBELUMNYA}
-                columns={HistoryPembayaranSebelumnya}
-              />
-            </div>
-            <div className='bg-white mt-5 p-5 border border-gray-200 shadow'>
-              <p className='text-center font-bold text-2xl'>
-                Detail Informasi Barang
+                Detail Informasi Pesanan Barang
               </p>
               <Table data={DATAITEMS} columns={ListPenerimaanBarang} />
             </div>
